@@ -30,4 +30,12 @@ public class Flamme_throw : MonoBehaviour
             isActive = true;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player was knocked back");
+            //collider.knockback();
+        }
+    }
 }
