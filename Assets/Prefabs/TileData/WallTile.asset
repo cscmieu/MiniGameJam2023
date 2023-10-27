@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f321ddc182f29034e8f61eb9f9da7e40, type: 3}
+  m_Name: WallTile
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 9aceb1036d31cd24b8f5f666847b035f, type: 2}
+  - {fileID: 11400000, guid: a8d2300618a5b3a4db0e73b9435bfcf1, type: 2}
+  - {fileID: 11400000, guid: a80256ce762b63a4c992e86e48027de7, type: 2}
+  - {fileID: 11400000, guid: 0e71476cc9d33a348b517622ee99d6a9, type: 2}
+  - {fileID: 11400000, guid: c17856aac2864a84aa86e06f108a16b3, type: 2}
+  - {fileID: 11400000, guid: ae5a3fea9f574c84498e48cd79a38dd6, type: 2}
+  - {fileID: 11400000, guid: b9aaf2842476c7645bcec1b0480956e6, type: 2}
+  - {fileID: 11400000, guid: 67eb9c817a330a94e9a86ebc257c7fea, type: 2}
+  - {fileID: 11400000, guid: 8755d96240c4b154188a48b5563f42f9, type: 2}
+  - {fileID: 11400000, guid: 40e248a03fe65a844a7ddddfd42bb19a, type: 2}
+  - {fileID: 11400000, guid: dd7e2c5f433bbc144be359b60b6892ca, type: 2}
+  - {fileID: 11400000, guid: f843ff1c043495147ae7426ff97c54c8, type: 2}
+  - {fileID: 11400000, guid: 89592ce3b3049c444bf09e6e3116bc4b, type: 2}
+  - {fileID: 11400000, guid: 79f0bf0407bef5e4397298f380c9991f, type: 2}
+  - {fileID: 11400000, guid: 432ca2f426b23cf488e35e7837c448f1, type: 2}
+  - {fileID: 11400000, guid: 14b8bf2848809964aa4d5044187ff5a4, type: 2}
+  - {fileID: 11400000, guid: 41d5609b188e5354f9446bda675e7a9c, type: 2}
+  - {fileID: 11400000, guid: ee0dfb9804969ee429ce597c18430166, type: 2}
+  - {fileID: 11400000, guid: 85d6fe75b32737b489744fbcd03cd5d9, type: 2}
+  - {fileID: 11400000, guid: 54c627c6f3931654e86a9bd723eb5998, type: 2}
+  - {fileID: 11400000, guid: 6a1a0203beb38f740b4eb47a78e42580, type: 2}
+  - {fileID: 11400000, guid: 768c954d33ba2a74bbf16c94a2b18131, type: 2}
+  - {fileID: 11400000, guid: 9b430d6824e9c7340ba6cf4a0e7484b3, type: 2}
+  - {fileID: 11400000, guid: 45723f28bb5493142bee85d463fa1945, type: 2}
+  - {fileID: 11400000, guid: b7dd6fc784dcdef49be9ae42b689a764, type: 2}
+  canDecay: 1
+  spreadInterval: 3
+  decayTime: 10
