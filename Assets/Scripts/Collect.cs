@@ -9,14 +9,4 @@ public class Collect : MonoBehaviour
         ScoreManager.Instance.UpdateScore(value);
         Destroy(gameObject);
     }
-    
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ScoreManager.Instance.UpdateScore(40);
-        }
-    }*/
 }
