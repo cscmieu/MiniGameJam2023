@@ -7,6 +7,6 @@ public class Collect : MonoBehaviour
     {
         if (collision.gameObject.layer != 6) return; // si on touche le joueur
         ScoreManager.Instance.UpdateScore(value);
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
