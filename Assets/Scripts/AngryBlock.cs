@@ -11,6 +11,8 @@ public class AngryBlock : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             EffectManager.KnockBackTriggered = true;
+            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            EffectManager.KnockBackToTheRight = hitToTheRight;
         }
         stop = true;
         animator.SetBool("destroyed", true);
