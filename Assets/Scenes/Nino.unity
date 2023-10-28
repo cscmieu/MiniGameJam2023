@@ -152,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b981edd7927f4644802ed25b47c1f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  time: 0
 --- !u!4 &127416668
 Transform:
   m_ObjectHideFlags: 0
@@ -724,10 +722,10 @@ MonoBehaviour:
   - {fileID: 1775099007}
   - {fileID: 2036044247}
   objects:
-  - {fileID: 6853483155949169570, guid: 7d5f05b8ed61a8943bc736c575b98342, type: 3}
-  - {fileID: 761300146112506230, guid: 4db592f111ec70b4fb4ce99f25ce7390, type: 3}
-  - {fileID: 3138599208104132578, guid: 150e1af4076c58a4e9b661ce274db767, type: 3}
-  - {fileID: 6842280541341649819, guid: 0e2cb8862c4c7aa41ac7bab4f0b40b58, type: 3}
+  - {fileID: 4350693603396297522, guid: 4db592f111ec70b4fb4ce99f25ce7390, type: 3}
+  - {fileID: 5912727537242282623, guid: 7d5f05b8ed61a8943bc736c575b98342, type: 3}
+  - {fileID: 5643509528500376490, guid: 150e1af4076c58a4e9b661ce274db767, type: 3}
+  - {fileID: 2855054639964963277, guid: 9ceaa3bf07e31e94b9b4a70c0b26c977, type: 3}
 --- !u!1 &1241736735
 GameObject:
   m_ObjectHideFlags: 0

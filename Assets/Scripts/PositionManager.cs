@@ -16,7 +16,6 @@ public class PositionManager : MonoBehaviour
         {
             id = Random.Range(0, listPosition.Count);
             pos = listPosition[id];
-            Debug.Log(listPosition.Count);
             listPosition.Remove(listPosition[id]);
             Instantiate(objects[i], pos);
         }
