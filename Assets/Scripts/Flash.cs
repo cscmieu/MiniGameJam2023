@@ -6,6 +6,7 @@ public class Flash : MonoBehaviour
     [SerializeField] private float angle = 23f;
     [SerializeField] private float activeperiod = 2f;
     [SerializeField] private Light flashlight;
+    [SerializeField] private float intensity = 4f;
     private float elapsedTime;
     private float flashTime;
     private void Start()
@@ -21,14 +22,14 @@ public class Flash : MonoBehaviour
             elapsedTime = 0;
             Detect();
         }
-        else if ((elapsedTime >= 0.5) && (flashlight.intensity == 1))
+        else if ((elapsedTime >= 0.1) && (flashlight.intensity == intensity))
         {
-            flashlight.intensity = 0;
+            flashlight.intensity = 0f;
         }
     }
     private void Detect()
     {
-        flashlight.intensity = 1;
+        flashlight.intensity = intensity;
         bool playertouched = false;
         float x = Mathf.Cos(transform.rotation.z - angle / 2);
         float y = Mathf.Sin(transform.rotation.z - angle / 2);
