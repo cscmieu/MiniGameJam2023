@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   ropeLayer;
 
     public Rigidbody2D rb;
+    public bool inCinematic;
     public                  Transform cameraTarget;
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isTouchingWall  = Animator.StringToHash("isTouchingWall");
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetFloat(airSpeed, rb.velocity.y);
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
 
-        if (_inputDisabled) return;
+        if (inCinematic) return;
         // Jump
         float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!_inputDisabled)
@@ -92,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (inCinematic) return;
         if (!_inputDisabled)
         {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);

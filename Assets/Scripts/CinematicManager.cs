@@ -12,6 +12,7 @@ public class CinematicManager : MonoBehaviour
     {
         player._inputDisabled = true;
         cam.isInCinematic = true;
+        player.rb.isKinematic = true;
         player.transform.position = startPosition.position;
         cam.transform.position = startPosition.position;
 
