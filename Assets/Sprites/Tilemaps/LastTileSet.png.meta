@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9c04b89b9e75e647b692409ba3b2f86
+guid: 5eb53780dd1721f4fb91b8fd2fb84bc7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlatformTileset_0
+      name: LastTileSet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd92a0d80a2a50c499585e6bcc62436d
+      internalID: -2111232883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LastTileSet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad83dab4e3cdb69438e3227218b92ca3
+      internalID: -1497206862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LastTileSet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aedc9ce694b47a54dbf68ffbd0e8291e
-      internalID: -935610777
+      spriteID: abaef3f61c6b40b4d95870aa08eefad7
+      internalID: 670856450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformTileset_1
+      name: LastTileSet_3
       rect:
         serializedVersion: 2
         x: 16
@@ -140,35 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90d5c7c2c40e0924d9384f88314152e1
-      internalID: -618862325
+      spriteID: e2d3247121f352248855afd424fbcd09
+      internalID: 2128995470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformTileset_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7a31dd1c462b384aa0392fc32d45583
-      internalID: -879695489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlatformTileset_3
+      name: LastTileSet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4ba13649ae4f204982b50021f27fa17
-      internalID: -162229399
+      spriteID: bac965160a301f94d9de2875f4b0e3bc
+      internalID: 840025225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformTileset_4
+      name: LastTileSet_5
       rect:
         serializedVersion: 2
         x: 16
@@ -203,92 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54a45caa17781ef49b2acb1214da3b54
-      internalID: 862141364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlatformTileset_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd25de056a0ae224a8e46c04be131983
-      internalID: 791789268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlatformTileset_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3a9b371e66a31245b9a3dfc2cf510a7
-      internalID: 1175191239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlatformTileset_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a1643b09057e084ea8b257b5b73be8c
-      internalID: 1377703323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlatformTileset_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1db78a96e574abb45a8410eb33bd0000
-      internalID: -152140183
+      spriteID: d3070a536099e4d4a89c72f94f562200
+      internalID: -345928911
       vertices: []
       indices: 
       edges: []
@@ -296,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 296558f5b45c44247ac85a057eee4d80
+    spriteID: 844d2b5158c197c44838552be7b1b2ef
     internalID: 0
     vertices: []
     indices: 
@@ -304,15 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlatformTileset_0: -935610777
-      PlatformTileset_1: -618862325
-      PlatformTileset_2: -879695489
-      PlatformTileset_3: -162229399
-      PlatformTileset_4: 862141364
-      PlatformTileset_5: 791789268
-      PlatformTileset_6: 1175191239
-      PlatformTileset_7: 1377703323
-      PlatformTileset_8: -152140183
+      LastTileSet_0: -2111232883
+      LastTileSet_1: -1497206862
+      LastTileSet_2: 670856450
+      LastTileSet_3: 2128995470
+      LastTileSet_4: 840025225
+      LastTileSet_5: -345928911
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
