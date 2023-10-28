@@ -14,44 +14,57 @@ public class StalactiteSim : MonoBehaviour
 
     private void CheckPlayerPresence()
     {
-        RaycastHit hit;
-        Vector3 origin = transform.position;
-        _shouldFall = (Physics.Raycast(origin, Vector3.down, out hit, groundDistance) &&
-                       hit.transform.CompareTag("Player"));
+        RaycastHit2D hit;
+        Vector2 origin = transform.position;
+        hit = Physics2D.Raycast(origin, Vector2.down, groundDistance);
+        if (hit.collider.CompareTag("Player"))
+        {
+            _shouldFall = true;
+            GetComponent<Rigidbody2D>().simulated = true;
+        }
     }
 
     private void Update()
     {
-        CheckPlayerPresence();
         if (_shouldFall)
         {
             _isFalling = true;
         }
 
-        if (_isFalling)
+        if (!_isFalling)
         {
-            if (_speed < maxspeed)
-            {
-                _speed += acceleration * Time.deltaTime;
-            }
-            else
-            {
-                _speed = maxspeed;
-            }
+            CheckPlayerPresence();
+            return;
+        }
 
-            if (_currentAdditionalFallLength < totalAdditionalFallLength)
-            {
-                transform.Translate(Vector3.down * (_speed * Time.deltaTime));
-            }
+        if (_speed < maxspeed)
+        {
+            _speed += acceleration * Time.deltaTime;
+        }
+        else
+        {
+            _speed = maxspeed;
+        }
 
-            if (_hasFallen)
-            {
-                _currentAdditionalFallLength += _speed * Time.deltaTime;
-            }
+        if (_currentAdditionalFallLength < totalAdditionalFallLength)
+        {
+            transform.Translate(Vector3.down *
+                                (_speed * Time
+                                    .deltaTime)); //stalactite falls only if it hasn't benn through the ground by over totalAdditionalFallLength
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+        if (_hasFallen)
+        {
+            _currentAdditionalFallLength +=
+                _speed * Time.deltaTime; //stalactite is in the ground, so we count the additional fall length
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

@@ -21,12 +21,12 @@ public class Flamme_throw : MonoBehaviour
     {
         if (isActive)
         {
-            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             isActive = false;
         }
         else
         {
-            GetComponent<BoxCollider>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
             isActive = true;
         }
     }
