@@ -55,6 +55,7 @@ public class StalactiteSim : MonoBehaviour
         else
         {
             GetComponent<EdgeCollider2D>().enabled = true;
+            GetComponent<PolygonCollider2D>().enabled = false;
         }
 
         if (_hasFallen)

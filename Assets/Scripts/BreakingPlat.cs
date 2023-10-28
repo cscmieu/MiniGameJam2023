@@ -3,6 +3,7 @@ using UnityEngine;
 public class BreakingPlat : MonoBehaviour
 {
     [SerializeField] private float breakingDuration = 1f;
+    [SerializeField] private Animator animator;
     private float _elapsedTime;
     private bool _shouldBreak;
 
@@ -20,8 +21,8 @@ public class BreakingPlat : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !_shouldBreak && other.gameObject.transform.position.y > (transform.position.y + transform.lossyScale.y * gameObject.GetComponent<BoxCollider2D>().size.y)/2f)
         {
             _shouldBreak = true;
+            animator.SetBool("PlayerStepped", true);
             breakingDuration += _elapsedTime;
-            Debug.Log(("should break"));
         }
     }
 }
