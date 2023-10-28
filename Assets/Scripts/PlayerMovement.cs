@@ -1,32 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontal;
-    private float vertical;
-    private bool touchRope;
-    private bool isFacingRight = true;
-    [SerializeField]
-    private float speed = 8f;
-    [SerializeField]
-    private float jumpingPower = 16f;
-    [SerializeField]
-    private float climbingSpeed = 8f;
+    private                  float horizontal;
+    private                  float vertical;
+    private                  bool  touchRope;
+    private                  bool  isFacingRight = true;
 
+    [SerializeField] private Animator    playerAnimator;
+    [SerializeField] private float       speed         = 8f;
+    [SerializeField] private float       jumpingPower  = 16f;
+    [SerializeField] private float       climbingSpeed = 8f;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform groundCheck2;
-    [SerializeField] private Transform rightWallCheck;
-    [SerializeField] private Transform leftWallCheck;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask ropeLayer;
+    [SerializeField] private Transform   groundCheck;
+    [SerializeField] private Transform   groundCheck2;
+    [SerializeField] private Transform   rightWallCheck;
+    [SerializeField] private Transform   leftWallCheck;
+    [SerializeField] private LayerMask   groundLayer;
+    [SerializeField] private LayerMask   ropeLayer;
 
-    public Transform cameraTarget;
-   
-    
+    public                  Transform cameraTarget;
+    private static readonly int       speed1 = Animator.StringToHash("Speed");
+
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        // Grimper � la corde
+        // Grimper à la corde
         if (vertical > 0f && touchRope)
         {
             rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        playerAnimator.SetFloat(speed1, Mathf.Abs(rb.velocity.x));
     }
 
     private bool IsGrounded()
