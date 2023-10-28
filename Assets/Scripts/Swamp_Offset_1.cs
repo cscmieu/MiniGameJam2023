@@ -1,8 +1,12 @@
 using UnityEngine;
 
-public class SwampEffect : MonoBehaviour
+public class Swamp_Offset_1 : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    private void Start()
+    {
+        animator.SetBool("ShouldOffsetBy1", true);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -25,3 +29,4 @@ public class SwampEffect : MonoBehaviour
         }
     }
 }
+

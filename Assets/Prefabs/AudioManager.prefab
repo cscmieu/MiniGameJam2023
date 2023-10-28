@@ -566,17 +566,17 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   sfx:
   - name: Jump
-    clip: {fileID: 8300000, guid: 9c81708937d7b400f94950a59f4ca6bb, type: 3}
+    clip: {fileID: 8300000, guid: df8c12b0595ffd149bc17f22956fad79, type: 3}
   - name: WallJump
-    clip: {fileID: 8300000, guid: eb297b6f22c52d64d8fde9bdb6caa5a6, type: 3}
+    clip: {fileID: 8300000, guid: 5ae21d630cd97844aa4fe2bb99b61b2e, type: 3}
   - name: Decay
-    clip: {fileID: 8300000, guid: ad76a72e77496f84db638b116b990b2e, type: 3}
+    clip: {fileID: 8300000, guid: a958ffd0b5fba6a4581cbded99b5d67a, type: 3}
   - name: Death
-    clip: {fileID: 8300000, guid: 83ca24a17212a614cb9e0206e1051087, type: 3}
+    clip: {fileID: 8300000, guid: e41d0cda6f77b6547b2d782d4fcab03a, type: 3}
   - name: GameOver
-    clip: {fileID: 8300000, guid: 9c9baa0e35f33524da4cfdbadca9c21f, type: 3}
+    clip: {fileID: 8300000, guid: 3ae7c6933bfa2684d9fc1509d65ebfb6, type: 3}
   - name: Win
-    clip: {fileID: 8300000, guid: d230040fe543387468d393b5805b589b, type: 3}
+    clip: {fileID: 8300000, guid: f4f0d43466f3f734384f02ae98a0ac5a, type: 3}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: 09f8dc09efedc414784e7ba556669245, type: 3}
   - name: ButtonClick
