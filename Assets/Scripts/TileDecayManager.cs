@@ -27,6 +27,7 @@ public class TileDecayManager : MonoBehaviour
     {
         TileData data = MapManager.Instance.GetTileData(decayStartPosition);
         SetTileOnDecay(decayStartPosition, data);
+        AudioManager.Instance.PlaySFX("Decay");
     }
 
     public void FinishedDecaying(Vector3Int position)

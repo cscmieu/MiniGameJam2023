@@ -31,6 +31,7 @@ public class CinematicManager : MonoBehaviour
             player.inCinematic = false;
             cam.isInCinematic = false;
             player.rb.isKinematic = false;
+            AudioManager.Instance.PlayMusic("MainMusic");
             Destroy(gameObject);
         }
     }
