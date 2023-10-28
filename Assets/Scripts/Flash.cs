@@ -35,13 +35,13 @@ public class Flash : MonoBehaviour
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         for (int i = 1; i <= 9; i += 1)
         {
-            playertouched = (playertouched || (Physics2D.Raycast(origin, new Vector2(x, y), distance, LayerMask.GetMask("Player"))));
+            playertouched = (playertouched || ((! Physics2D.Raycast(origin, new Vector2(x, y), distance, Mathf.Abs(1 - (LayerMask.GetMask("Player")))) && (Physics2D.Raycast(origin, new Vector2(x, y), distance, LayerMask.GetMask("Player"))))));
             x = Mathf.Cos(transform.rotation.z - (4 - i) * angle / 2);
             y = Mathf.Sin(transform.rotation.z - (4 - i) * angle / 2);
         }
         if (playertouched)
         {
-            
+            Debug.LogAssertion("touche");
             //PlayerMovement.Stun();
         }
     }
