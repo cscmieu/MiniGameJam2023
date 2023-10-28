@@ -1,52 +1,43 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Flash : MonoBehaviour
 {
-    [SerializeField] private float distance = 20f;
-    [SerializeField] private float angle = 23f;
     [SerializeField] private float activeperiod = 2f;
-    [SerializeField] private Light flashlight;
-    [SerializeField] private float intensity = 4f;
-    private float elapsedTime;
-    private float flashTime;
+    [SerializeField] private Light2D flashlight;
+    [SerializeField] private float intensity = 0.5f;
+    private float _elapsedTime;
+    private bool _activated;
     private void Start()
     {
-        flashlight.intensity = 0;
+        flashlight.intensity = 0f;
     }
 
     private void Update()
     {
-        elapsedTime += Time.deltaTime;
-        if ((elapsedTime >= activeperiod) && (flashlight.intensity == 0))
+        _elapsedTime += Time.deltaTime;
+        if ((_elapsedTime >= activeperiod) && (flashlight.intensity == 0f))
         {
-            elapsedTime = 0;
-            Detect();
+            _elapsedTime = 0f;
+            flashlight.intensity = intensity;
+            _activated = true;
         }
-        else if ((elapsedTime >= 0.1) && (flashlight.intensity == intensity))
+        else if ((_elapsedTime >= 0.1f) && (flashlight.intensity == intensity))
         {
             flashlight.intensity = 0f;
+            _activated = false;
         }
-    }
-    private void Detect()
-    {
-        flashlight.intensity = intensity;
-        bool playertouched = false;
-        float x = Mathf.Cos(transform.rotation.z - angle / 2);
-        float y = Mathf.Sin(transform.rotation.z - angle / 2);
-        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
-        for (int i = 1; i <= 9; i += 1)
+        if (gameObject.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Player")) && (_activated))
         {
-            playertouched = (playertouched ||
-                             ((!Physics2D.Raycast(origin, new Vector2(x, y), distance,
-                                 Mathf.Abs(1 - (LayerMask.GetMask("Player")))) && (Physics2D.Raycast(origin,
-                                 new Vector2(x, y), distance, LayerMask.GetMask("Player"))))));
-            x = Mathf.Cos(transform.rotation.z - (4 - i) * angle / 2);
-            y = Mathf.Sin(transform.rotation.z - (4 - i) * angle / 2);
-        }
-        if (playertouched)
-        {
-            Debug.LogAssertion("touche");
             EffectManager.StunTriggered = true;
         }
     }
+/*
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if ((other.gameObject.layer == 6) && (_activated))
+        {
+            EffectManager.StunTriggered = true;
+        }
+    }*/
 }

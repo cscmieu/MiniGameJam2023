@@ -12,11 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private bool  touchWall;
     private bool  touchFloor;
     private bool  isFacingRight = true;
-    private bool _inputDisabled;
+    public bool _inputDisabled;
     private bool _isHit;
     private bool _isStunned;
     private float _elapsedTime;
     
+    [SerializeField] private float bumpInputDisabledDuration = 0.3f;
     [SerializeField] private float hitInputDisabledDuration = 0.4f;
     [SerializeField] private float stunInputDisabledDuration = 0.8f;
     [SerializeField] private Vector2     knockBackStr = new(10f, 10f);
@@ -123,6 +124,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
         }
         
+        if (EffectManager.BumpTriggered)
+        {
+            _isStunned = true;
+            _inputDisabled = true;
+            EffectManager.BumpTriggered = false;
+        }
+        
         if (_inputDisabled)
         {
             _elapsedTime += Time.deltaTime;
@@ -134,6 +142,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (_elapsedTime > stunInputDisabledDuration)
+        {
+            _isStunned = false;
+        }
+
+        if (_elapsedTime > bumpInputDisabledDuration)
         {
             _isStunned = false;
         }
