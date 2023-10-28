@@ -69,6 +69,8 @@ public class StalactiteSim : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EffectManager.KnockBackTriggered = true;
+            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            EffectManager.KnockBackToTheRight = hitToTheRight;
         }
         else if (other.CompareTag("Ground"))
         {

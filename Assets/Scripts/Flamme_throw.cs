@@ -34,8 +34,9 @@ public class Flamme_throw : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player was knocked back");
             EffectManager.KnockBackTriggered = true;
+            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            EffectManager.KnockBackToTheRight = hitToTheRight;
         }
     }
 }

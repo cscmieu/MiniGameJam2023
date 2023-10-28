@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (inCinematic) return;
+        float knockBackDirection = EffectManager.KnockBackToTheRight == true ?  1 : -1;
         if (!_inputDisabled)
         {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
@@ -110,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             _isHit = true;
             _inputDisabled = true;
             EffectManager.KnockBackTriggered = false;
-            rb.velocity = new Vector2(transform.lossyScale.x * knockBackStr.x, knockBackStr.y);
+            rb.velocity = new Vector2(knockBackDirection * knockBackStr.x, knockBackStr.y);
         }
 
         if (EffectManager.StunTriggered)
