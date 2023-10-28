@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-    [SerializeField] public int value = 0; 
-    void OnCollisionEnter2D(Collision2D col)
+    [SerializeField] public int value = 0;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!col.gameObject.CompareTag("Player")) return;
+        if (collision.gameObject.layer != 6) return; // si on touche le joueur
         ScoreManager.Instance.UpdateScore(value);
         Destroy(gameObject);
     }
