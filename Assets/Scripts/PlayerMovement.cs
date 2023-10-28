@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask ropeLayer;
 
+    public Transform cameraTarget;
+   
+    
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -54,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(rb.IsSleeping());
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
