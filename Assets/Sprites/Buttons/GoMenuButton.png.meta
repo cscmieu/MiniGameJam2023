@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e589442f27132c04091b0d1050c53673
+guid: f581ae8ca7c433340b3a8b795b1468b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,43 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button1_0
+      name: GoMenuButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 28
+        width: 80
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c700fdf348998a243bf5c23b84fec218
-      internalID: 1843850007
+      spriteID: 31eb0a3183e30bf4382b3b40153d4eb1
+      internalID: -861684143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button1_1
+      name: GoMenuButton_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 0
-        width: 64
-        height: 28
+        width: 80
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6bc4edf210ba364cb378261f63e6f54
-      internalID: 667731514
+      spriteID: 1316971e537959a4c81f293c4cd919fe
+      internalID: 484662160
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2122899411a398947b112e367d82d38b
+    spriteID: c1346ed39bf669e49adaab8f6c34d385
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Button1_0: 1843850007
-      Button1_1: 667731514
+      GoMenuButton_0: -861684143
+      GoMenuButton_1: 484662160
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
