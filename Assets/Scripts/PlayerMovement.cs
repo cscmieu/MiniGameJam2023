@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool  touchWall;
     private bool  touchFloor;
     private bool  isFacingRight = true;
-    public bool _inputDisabled;
+    private bool _inputDisabled;
     private bool _isHit;
     private bool _isStunned;
     private float _elapsedTime;
@@ -47,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (inCinematic)
+        {
+            playerAnimator.SetBool(isTouchingRope, true);
+            playerAnimator.SetFloat(isClimbingRope, 1);
+            return;
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical   = Input.GetAxisRaw("Vertical");
         touchRope  = TouchRope();
@@ -58,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetFloat(airSpeed, rb.velocity.y);
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
 
-        if (inCinematic) return;
         // Jump
         float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!_inputDisabled)

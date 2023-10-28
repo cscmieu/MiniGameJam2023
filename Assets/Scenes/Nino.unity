@@ -541,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305002774137009191, guid: de1c9954dd4ff184184ccc1a1ef6b48d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de1c9954dd4ff184184ccc1a1ef6b48d, type: 3}
@@ -779,6 +779,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8f7b7288c09f64bb27364383d54cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &663258857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4305002774137009188, guid: de1c9954dd4ff184184ccc1a1ef6b48d, type: 3}
+  m_PrefabInstance: {fileID: 271796504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4e26ad8ef4e7646ad678a75b144960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &711430302
@@ -1233,7 +1244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 396205242}
   startPosition: {fileID: 1904179719}
+  endPosition: {fileID: 340424397}
   cam: {fileID: 1673288484}
+  timeToDescend: 5
+  tileDecayManager: {fileID: 663258857}
 --- !u!4 &1489007043
 Transform:
   m_ObjectHideFlags: 0
