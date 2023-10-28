@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
     private bool  touchFloor;
     private bool  isFacingRight = true;
     private bool _inputDisabled;
+    private bool _isHit;
+    private bool _isStunned;
     private float _elapsedTime;
     
-    [SerializeField] private float inputDisabledDuration = 0.4f;
-
+    [SerializeField] private float hitInputDisabledDuration = 0.4f;
+    [SerializeField] private float stunInputDisabledDuration = 0.8f;
     [SerializeField] private Vector2     knockBackStr = new(10f, 10f);
     [SerializeField] private Animator    playerAnimator;
     [SerializeField] private float       moveSpeed     = 8f;
@@ -57,19 +59,23 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump
         float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
-        if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
+        if (!_inputDisabled)
         {
-            rb.velocity = new Vector2(rb.velocity.x, ySpeed);
-        }
+            if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, ySpeed);
+            }
 
-        if (Input.GetButtonDown("Jump") && touchWall)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, ySpeed);
-        }
+            if (Input.GetButtonDown("Jump") && touchWall)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, ySpeed);
+            }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) // en rajoutant (&& !TouchRope()) on ne descend pas quand on touche la corde 
-        {
-            rb.velocity = new Vector2(rb.velocity.x, ySpeed * 0.5f);
+            if (Input.GetButtonUp("Jump") &&
+                rb.velocity.y > 0f) // en rajoutant (&& !TouchRope()) on ne descend pas quand on touche la corde 
+            {
+                rb.velocity = new Vector2(rb.velocity.x, ySpeed * 0.5f);
+            }
         }
 
         // Grimper à la corde
@@ -89,24 +95,44 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
+        
         if (EffectManager.KnockBackTriggered)
         {
+            _isHit = true;
             _inputDisabled = true;
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(transform.lossyScale.x * knockBackStr.x, knockBackStr.y);
         }
 
+        if (EffectManager.StunTriggered)
+        {
+            _isStunned = true;
+            _inputDisabled = true;
+            EffectManager.StunTriggered = false;
+            rb.velocity = new Vector2(0, 0);
+        }
+        
         if (_inputDisabled)
         {
             _elapsedTime += Time.deltaTime;
         }
 
-        if (_elapsedTime > inputDisabledDuration)
+        if (_elapsedTime > hitInputDisabledDuration)
+        {
+            _isHit = false;
+        }
+
+        if (_elapsedTime > stunInputDisabledDuration)
+        {
+            _isStunned = false;
+        }
+
+        if (!_isStunned && !_isHit && _inputDisabled)
         {
             _inputDisabled = false;
             _elapsedTime = 0;
         }
-
+        
         if (EffectManager.SlownessTriggered)
         {
             rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
@@ -131,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !_inputDisabled)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
