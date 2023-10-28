@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: DecayTile
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: abbb5ea04b4c62e4c89e094c64f6e6d0, type: 2}
-  state: 2
-  spreadChance: 0
+  - {fileID: 11400000, guid: bc71b14e1652a2d4182d9be79b2ecd4d, type: 2}
+  - {fileID: 11400000, guid: 38fe39e959c026c46a539889c6a482ad, type: 2}
+  - {fileID: 11400000, guid: bf243b9af0be68841bc23c4bbdd4d8f9, type: 2}
+  - {fileID: 11400000, guid: b516cf266d82944479ce2932eb3ed129, type: 2}
+  - {fileID: 11400000, guid: 4fd29b486beeb0c43b6ce38d163161ac, type: 2}
+  canDecay: 0
   spreadInterval: 0
   decayTime: 0
