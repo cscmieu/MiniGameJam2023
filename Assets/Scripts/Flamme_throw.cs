@@ -35,7 +35,7 @@ public class Flamme_throw : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player was knocked back");
-            //collider.knockback();
+            EffectManager.KnockBackTriggered = true;
         }
     }
 }

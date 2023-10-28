@@ -68,8 +68,7 @@ public class StalactiteSim : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player was knocked Back");
-            //collider.knockback();
+            EffectManager.KnockBackTriggered = true;
         }
         else if (other.CompareTag("Ground"))
         {

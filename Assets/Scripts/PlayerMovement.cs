@@ -12,7 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private bool  touchWall;
     private bool  touchFloor;
     private bool  isFacingRight = true;
+    private bool _inputDisabled;
+    private float _elapsedTime;
+    
+    [SerializeField] private float inputDisabledDuration = 0.4f;
 
+    [SerializeField] private Vector2 knockBackStr = new(10f, 10f);
     [SerializeField] private Animator    playerAnimator;
     [SerializeField] private float       moveSpeed         = 8f;
     [SerializeField] private float       jumpingPower  = 16f;
@@ -73,7 +78,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        if (!_inputDisabled)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        if (EffectManager.KnockBackTriggered)
+        {
+            _inputDisabled = true;
+            EffectManager.KnockBackTriggered = false;
+            rb.velocity = new Vector2(transform.lossyScale.x * knockBackStr.x, knockBackStr.y);
+            Debug.Log("Velocity added");
+        }
+
+        if (_inputDisabled)
+        {
+            _elapsedTime += Time.deltaTime;
+        }
+
+        if (_elapsedTime > inputDisabledDuration)
+        {
+            _inputDisabled = false;
+            _elapsedTime = 0;
+        }
     }
 
     private bool IsGrounded()
