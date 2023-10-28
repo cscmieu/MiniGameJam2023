@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private                  float horizontal;
-    private                  float vertical;
-    private                  bool  touchRope;
-    private                  bool  isFacingRight = true;
+    private float horizontal;
+    private float vertical;
+    private bool  touchRope;
+    private bool  touchWall;
+    private bool  touchFloor;
+    private bool  isFacingRight = true;
 
     [SerializeField] private Animator    playerAnimator;
-    [SerializeField] private float       speed         = 8f;
+    [SerializeField] private float       moveSpeed         = 8f;
     [SerializeField] private float       jumpingPower  = 16f;
     [SerializeField] private float       climbingSpeed = 8f;
     [SerializeField] private Rigidbody2D rb;
@@ -24,22 +26,31 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   ropeLayer;
 
     public                  Transform cameraTarget;
-    private static readonly int       speed1 = Animator.StringToHash("Speed");
+    private static readonly int       speed          = Animator.StringToHash("Speed");
+    private static readonly int       isTouchingWall  = Animator.StringToHash("isTouchingWall");
+    private static readonly int       airSpeed        = Animator.StringToHash("AirSpeed");
+    private static readonly int       isTouchingFloor = Animator.StringToHash("isTouchingFloor");
 
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-        touchRope = TouchRope();
+        vertical   = Input.GetAxisRaw("Vertical");
+        touchRope  = TouchRope();
+        touchWall  = TouchWall();
+        touchFloor = IsGrounded();
+        playerAnimator.SetBool(isTouchingWall, touchWall);
+        playerAnimator.SetBool(isTouchingFloor, touchFloor);
+        playerAnimator.SetFloat(airSpeed, rb.velocity.y);
+        playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
 
         // Jump
-        if (Input.GetButtonDown("Jump") && (IsGrounded() || touchRope))
+        if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
-        if (Input.GetButtonDown("Jump") && TouchWall())
+        if (Input.GetButtonDown("Jump") && touchWall)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
@@ -60,8 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        playerAnimator.SetFloat(speed1, Mathf.Abs(rb.velocity.x));
+        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
 
     private bool IsGrounded()
