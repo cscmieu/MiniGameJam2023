@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int score;
-    public float time;
+    public static int score;
+    public static float time;
     public static ScoreManager Instance { get; private set; }
 
     private void Awake()
