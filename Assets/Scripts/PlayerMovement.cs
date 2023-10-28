@@ -17,9 +17,9 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float inputDisabledDuration = 0.4f;
 
-    [SerializeField] private Vector2 knockBackStr = new(10f, 10f);
+    [SerializeField] private Vector2     knockBackStr = new(10f, 10f);
     [SerializeField] private Animator    playerAnimator;
-    [SerializeField] private float       moveSpeed         = 8f;
+    [SerializeField] private float       moveSpeed     = 8f;
     [SerializeField] private float       jumpingPower  = 16f;
     [SerializeField] private float       climbingSpeed = 8f;
     [SerializeField] private Rigidbody2D rb;
@@ -33,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   ropeLayer;
 
     public                  Transform cameraTarget;
-    private static readonly int       speed          = Animator.StringToHash("Speed");
+    private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isTouchingWall  = Animator.StringToHash("isTouchingWall");
     private static readonly int       airSpeed        = Animator.StringToHash("AirSpeed");
     private static readonly int       isTouchingFloor = Animator.StringToHash("isTouchingFloor");
+    private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
+    private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
 
 
     void Update()
@@ -46,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
         touchRope  = TouchRope();
         touchWall  = TouchWall();
         touchFloor = IsGrounded();
-        playerAnimator.SetBool(isTouchingWall, touchWall);
+        playerAnimator.SetBool(isTouchingWall,  touchWall);
         playerAnimator.SetBool(isTouchingFloor, touchFloor);
+        playerAnimator.SetBool(isTouchingRope, touchRope);
         playerAnimator.SetFloat(airSpeed, rb.velocity.y);
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
 
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (vertical > 0f && touchRope)
         {
             rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
+            playerAnimator.SetFloat(isClimbingRope, rb.velocity.y);
         }
 
         Flip();
@@ -80,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_inputDisabled)
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
         if (EffectManager.KnockBackTriggered)
         {
