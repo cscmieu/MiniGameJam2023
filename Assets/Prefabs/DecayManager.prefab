@@ -47,7 +47,7 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   decayTile: {fileID: 11400000, guid: abbb5ea04b4c62e4c89e094c64f6e6d0, type: 2}
   damagedPrefab: {fileID: -500054247895193592, guid: a52341e942193ad48a721ccf0e178892, type: 3}
-  decayStartPosition: {x: -1, y: -5, z: 0}
+  decayStartPosition: {x: 5, y: -4, z: 0}
   spreadChanceSide: 75
   spreadChanceUp: 10
   spreadChanceDown: 90

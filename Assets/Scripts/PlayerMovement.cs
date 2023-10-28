@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform groundCheck2;
     [SerializeField] private Transform rightWallCheck;
     [SerializeField] private Transform leftWallCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        // Grimper à la corde
+        // Grimper ï¿½ la corde
         if (vertical > 0f && touchRope)
         {
             rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
@@ -53,12 +54,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(rb.IsSleeping());
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer) || Physics2D.OverlapCircle(groundCheck2.position, 0.5f, groundLayer);
     }
 
     private bool TouchWall()

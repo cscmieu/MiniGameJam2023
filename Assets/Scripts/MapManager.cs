@@ -35,7 +35,7 @@ public class MapManager : MonoBehaviour
             }
         }
     }
-    
+
     public TileData GetTileData(Vector3Int position)
     {
         TileBase tile = tilemap.GetTile(position);
