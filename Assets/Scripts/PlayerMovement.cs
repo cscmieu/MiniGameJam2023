@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         // Grimper à la corde
         if (vertical > 0f && touchRope)
         {
+            rb.position = new Vector2(5.5f,          rb.position.y);
             rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
             playerAnimator.SetFloat(isClimbingRope, rb.velocity.y);
         }
