@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float       climbingSpeed = 8f;
     [SerializeField] private float       jumpPowerMultiplier = 0.5f; //applied when under slowness effect
     [SerializeField] private Transform   groundCheck;
-    [SerializeField] private Transform   groundCheck2;
     [SerializeField] private Transform   rightWallCheck;
     [SerializeField] private Transform   leftWallCheck;
     [SerializeField] private Transform   rightWallCheck2;
@@ -151,13 +150,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer) || Physics2D.OverlapCircle(groundCheck2.position, 0.5f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private bool TouchWall()
     {
-        return Physics2D.OverlapCircle(rightWallCheck.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(leftWallCheck.position, 0.2f, groundLayer)
-            || Physics2D.OverlapCircle(rightWallCheck2.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(leftWallCheck2.position, 0.2f, groundLayer);
+        return (Physics2D.OverlapCircle(rightWallCheck.position, 0.2f, groundLayer) 
+               || Physics2D.OverlapCircle(leftWallCheck.position, 0.2f, groundLayer) 
+               || Physics2D.OverlapCircle(rightWallCheck2.position, 0.2f, groundLayer) 
+               || Physics2D.OverlapCircle(leftWallCheck2.position, 0.2f, groundLayer));
     }
 
     private bool TouchRope()
