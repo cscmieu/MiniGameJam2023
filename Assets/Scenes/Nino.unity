@@ -510,6 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 820133436}
   groundCheck: {fileID: 754802933}
+  groundCheck2: {fileID: 0}
   rightWallCheck: {fileID: 1296409096}
   leftWallCheck: {fileID: 1196440419}
   groundLayer:
@@ -518,6 +519,7 @@ MonoBehaviour:
   ropeLayer:
     serializedVersion: 2
     m_Bits: 128
+  cameraTarget: {fileID: 0}
 --- !u!1 &838469190
 GameObject:
   m_ObjectHideFlags: 0
