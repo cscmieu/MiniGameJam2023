@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float       jumpingPower  = 16f;
     [SerializeField] private float       climbingSpeed = 8f;
     [SerializeField] private float       jumpPowerMultiplier = 0.5f; //applied when under slowness effect
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform   groundCheck;
     [SerializeField] private Transform   groundCheck2;
     [SerializeField] private Transform   rightWallCheck;
@@ -35,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   groundLayer;
     [SerializeField] private LayerMask   ropeLayer;
 
+    public Rigidbody2D rb;
     public                  Transform cameraTarget;
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isTouchingWall  = Animator.StringToHash("isTouchingWall");

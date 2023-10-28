@@ -13,9 +13,16 @@ public class CameraMovement : MonoBehaviour
     private float xMin = -1, xMax = 12, speed = .5f;
 
     private Vector3 velocity;
+    public bool isInCinematic;
     // Update is called once per frame
     void Update()
     {
+        if (isInCinematic)
+        {
+            transform.position = target.transform.position;
+            return;
+        }
+
         if (target.transform.position.x > rope.transform.position.x - 3 &&
             target.transform.position.x < rope.transform.position.x + 3)
         {
