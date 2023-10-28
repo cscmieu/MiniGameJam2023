@@ -49,5 +49,5 @@ MonoBehaviour:
   damagedPrefab: {fileID: -500054247895193592, guid: a52341e942193ad48a721ccf0e178892, type: 3}
   decayStartPosition: {x: 5, y: -4, z: 0}
   spreadChanceSide: 75
-  spreadChanceUp: 10
+  spreadChanceUp: 20
   spreadChanceDown: 90
