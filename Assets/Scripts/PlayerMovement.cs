@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float       moveSpeed     = 8f;
     [SerializeField] private float       jumpingPower  = 16f;
     [SerializeField] private float       climbingSpeed = 8f;
+    [SerializeField] private float       jumpPowerMultiplier = 0.5f; //applied when under slowness effect
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform   groundCheck;
     [SerializeField] private Transform   groundCheck2;
@@ -55,19 +56,20 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
 
         // Jump
+        float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.velocity = new Vector2(rb.velocity.x, ySpeed);
         }
 
         if (Input.GetButtonDown("Jump") && touchWall)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.velocity = new Vector2(rb.velocity.x, ySpeed);
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) // en rajoutant (&& !TouchRope()) on ne descend pas quand on touche la corde 
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.velocity = new Vector2(rb.velocity.x, ySpeed * 0.5f);
         }
 
         // Grimper à la corde
@@ -91,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
             _inputDisabled = true;
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(transform.lossyScale.x * knockBackStr.x, knockBackStr.y);
-            Debug.Log("Velocity added");
         }
 
         if (_inputDisabled)
@@ -103,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _inputDisabled = false;
             _elapsedTime = 0;
+        }
+
+        if (EffectManager.SlownessTriggered)
+        {
+            rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
         }
     }
 
