@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int         isStunned       = Animator.StringToHash("isStunned");
 
 
-    void Update()
+    private void Update()
     {
         if (inCinematic)
         {
@@ -195,13 +195,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if ((_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) && !_inputDisabled)
-        {
-            _isFacingRight = !_isFacingRight;
-            var     transform1 = transform;
-            var localScale = transform1.localScale;
-            localScale.x *= -1f;
-            transform1.localScale = localScale;
-        }
+        if (((!_isFacingRight || !(_horizontal < 0f)) && (_isFacingRight || !(_horizontal > 0f))) || _inputDisabled) return;
+        
+        _isFacingRight = !_isFacingRight;
+        var transform1 = transform;
+        var localScale = transform1.localScale;
+        localScale.x          *= -1f;
+        transform1.localScale =  localScale;
     }
 }
