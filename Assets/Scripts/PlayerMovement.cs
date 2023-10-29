@@ -51,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameMenu.Instance.PauseGame();
+            return;
+        }
     
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical   = Input.GetAxisRaw("Vertical");
