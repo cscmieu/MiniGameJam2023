@@ -1,26 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PositionManager : MonoBehaviour
 {
-    private int id;
-    [SerializeField] List<Transform> listPosition;
-    [SerializeField] List<GameObject> objects; // objets � instantier
+    private                  int              _id;
+    [SerializeField] private List<Transform>  listPosition;
+    [SerializeField] private List<GameObject> objects; // objets à instantier
 
-    void Start()
+    private void Start()
     {
-        for (int i = 0; i < objects.Count; i++)
-        {
-            Transform pos;
-            id = Random.Range(0, listPosition.Count);
-            pos = listPosition[id];
-            listPosition.Remove(listPosition[id]);
-            var spawnedObj = Instantiate(objects[i], pos.position, Quaternion.identity);
+        foreach (var t in objects)
             
+        {
+            _id = Random.Range(0, listPosition.Count);
+            var pos = listPosition[_id];
+            listPosition.Remove(listPosition[_id]);
+            Instantiate(t, pos.position, Quaternion.identity);
         }
-
     }
 
 }

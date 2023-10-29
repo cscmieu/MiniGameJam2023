@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetBool(isStunned, _isStunned);
         playerAnimator.SetBool(isHurt, _isHit);
         // Jump
-        var ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
+        var ySpeed = EffectManager.SlownessTriggered ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!_inputDisabled)
         {
             if (Input.GetButtonDown("Jump") && (_touchFloor || _touchRope))
@@ -92,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
         {
             lamp.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.position = new Vector2(5.5f,          rb.position.y);
-            rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
-            playerAnimator.SetFloat(isClimbingRope, rb.velocity.y);
+            var velocity = rb.velocity;
+            velocity    = new Vector2(velocity.x, climbingSpeed);
+            rb.velocity = velocity;
+            playerAnimator.SetFloat(isClimbingRope, velocity.y);
         }
         else
         {
@@ -106,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (inCinematic) return;
-        float knockBackDirection = EffectManager.KnockBackToTheRight == true ?  1 : -1;
+        float knockBackDirection = EffectManager.KnockBackToTheRight ?  1 : -1;
         if (!_inputDisabled)
         {
             rb.velocity = new Vector2(_horizontal * moveSpeed, rb.velocity.y);
@@ -144,13 +146,13 @@ public class PlayerMovement : MonoBehaviour
         if (_elapsedTime > hitInputDisabledDuration)
         {
             _isHit = false;
-            playerAnimator.SetBool("isHurt", false);
+            playerAnimator.SetBool(isHurt, false);
         }
 
         if (_elapsedTime > stunInputDisabledDuration)
         {
             _isStunned = false;
-            playerAnimator.SetBool("isStunned", false);
+            playerAnimator.SetBool(isStunned, false);
         }
 
         if (_elapsedTime > bumpInputDisabledDuration)
@@ -166,7 +168,9 @@ public class PlayerMovement : MonoBehaviour
         
         if (EffectManager.SlownessTriggered)
         {
-            rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
+            var velocity = rb.velocity;
+            velocity    = new Vector2(velocity.x / 2, velocity.y);
+            rb.velocity = velocity;
         }
     }
 
@@ -185,7 +189,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool TouchRope()
     {
-        return Physics2D.OverlapCircle(transform.position, Math.Abs(transform.localScale.x/2), ropeLayer);
+        var transform1 = transform;
+        return Physics2D.OverlapCircle(transform1.position, Math.Abs(transform1.localScale.x/2), ropeLayer);
     }
 
     private void Flip()
@@ -193,9 +198,10 @@ public class PlayerMovement : MonoBehaviour
         if ((_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) && !_inputDisabled)
         {
             _isFacingRight = !_isFacingRight;
-            Vector3 localScale = transform.localScale;
+            var     transform1 = transform;
+            var localScale = transform1.localScale;
             localScale.x *= -1f;
-            transform.localScale = localScale;
+            transform1.localScale = localScale;
         }
     }
 }

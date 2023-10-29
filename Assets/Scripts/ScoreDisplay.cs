@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoretext;
-    void Start()
+    [SerializeField] private TMP_Text scoreText;
+
+    private void Start()
     {
-        scoretext.text = "Score : 0";
+        scoreText.text = "Score : 0";
     }
 
-    void Update()
+    private void Update()
     {
-        scoretext.text = "Score : " + ScoreManager.score;
+        scoreText.text = "Score : " + ScoreManager.score;
     }
 }

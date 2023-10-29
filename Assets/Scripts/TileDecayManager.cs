@@ -58,7 +58,7 @@ public class TileDecayManager : MonoBehaviour
 
     private void SetTileOnDecay(Vector3Int position, TileData data)
     {
-        Damaged newDamaged = Instantiate(damagedPrefab);
+        var newDamaged = Instantiate(damagedPrefab);
         newDamaged.transform.position = tilemap.GetCellCenterWorld(position);
         newDamaged.StartDecayed(position, data, this);
         
