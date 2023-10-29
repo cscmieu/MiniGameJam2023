@@ -1,14 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using Button = UnityEngine.UI.Button;
 
 public class KillZone : MonoBehaviour
 {
     [SerializeField] private GameObject gameOver;
+    [SerializeField] public Button pauseButton;
+    [SerializeField] public GameObject pauseMenu;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
             AudioManager.Instance.PlaySFX("Death");
+            pauseMenu.SetActive(false);
+            pauseButton.gameObject.SetActive(false);
             StartCoroutine(GameOverCoroutine());
         }
         
