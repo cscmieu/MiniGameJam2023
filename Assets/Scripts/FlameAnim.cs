@@ -3,7 +3,7 @@ using UnityEngine;
 public class FlameAnim : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private float waitDuration = 0.1f;
+    [SerializeField] private float waitDuration = 0.4f;
     private bool switchBool;
     private float elapsedTime;
     public static bool FlammeStart;

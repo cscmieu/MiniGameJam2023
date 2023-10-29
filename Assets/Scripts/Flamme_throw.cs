@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Flamme_throw : MonoBehaviour
@@ -7,6 +8,11 @@ public class Flamme_throw : MonoBehaviour
     private float elapsedTime;
     private bool isActive = false;
 
+    private void Start()
+    {
+        FlameAnim.FlammeStart = true;
+    }
+
     private void Update()
     {
         elapsedTime += Time.deltaTime;
@@ -14,6 +20,11 @@ public class Flamme_throw : MonoBehaviour
         {
             elapsedTime = 0;
             toggleFlame();
+        }
+
+        if ((elapsedTime >= disabledTime - 0.2f) && !isActive)
+        {
+            FlameAnim.FlammeStart = true;
         }
     }
 
@@ -29,7 +40,6 @@ public class Flamme_throw : MonoBehaviour
         {
             GetComponent<BoxCollider2D>().enabled = true;
             isActive = true;
-            FlameAnim.FlammeStop = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
