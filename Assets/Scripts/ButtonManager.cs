@@ -41,4 +41,14 @@ public class ButtonManager : MonoBehaviour
         creditsPanel.SetActive(false);
         menuPanel.SetActive(true);
     }
+    
+    public void Hover()
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
+    }
+    
+    public void Click()
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+    }
 }

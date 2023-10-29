@@ -14,6 +14,7 @@ public class VictoryScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlaySFX("Win");
         scoreTresors.text = scoreTresors.text + ScoreManager.score;
         int timeScore = (int) (1 / ScoreManager.time * 30000);
         scoreTime.text = scoreTime.text + timeScore;

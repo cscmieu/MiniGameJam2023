@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+  vfx: Trophee
 --- !u!61 &2855054638576643328
 BoxCollider2D:
   m_ObjectHideFlags: 0

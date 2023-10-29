@@ -23,6 +23,7 @@ public class CinematicManager : MonoBehaviour
     
     void Start()
     {
+        AudioManager.Instance.PlayMusic("Descent");
         player.inCinematic = true;
         cam.isInStartCinematic = true;
         player.rb.isKinematic = true;

@@ -300,7 +300,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -564,6 +564,8 @@ MonoBehaviour:
   musics:
   - name: MainMusic
     clip: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+  - name: Descent
+    clip: {fileID: 8300000, guid: 3425722ae05786a48a5948c2db877b70, type: 3}
   sfx:
   - name: Jump
     clip: {fileID: 8300000, guid: df8c12b0595ffd149bc17f22956fad79, type: 3}
@@ -581,6 +583,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 09f8dc09efedc414784e7ba556669245, type: 3}
   - name: ButtonClick
     clip: {fileID: 8300000, guid: efc3f2eb62e42f44b849b70d51c2fe58, type: 3}
+  - name: Gold
+    clip: {fileID: 8300000, guid: ed86d4d8d3bcf7d47a07cd996a4761ac, type: 3}
+  - name: Orb
+    clip: {fileID: 8300000, guid: 0f38eed3d8ac72c4089145e3ef110237, type: 3}
+  - name: Trophee
+    clip: {fileID: 8300000, guid: 0ff932ffd03b17241b779d90878f91fb, type: 3}
   musicSource: {fileID: 2515360005461390791}
   sfxSources:
   - {fileID: 2515360006530480100}

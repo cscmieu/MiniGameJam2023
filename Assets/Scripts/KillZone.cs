@@ -11,11 +11,18 @@ public class KillZone : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             AudioManager.Instance.PlaySFX("Death");
-            gameOver.SetActive(true);    
+            StartCoroutine(GameOverCoroutine());
         }
         
 	    Destroy(other.gameObject);
     }
-    
+
+    private IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        AudioManager.Instance.PlaySFX("GameOver");
+        AudioManager.Instance.PlayMusic("Descent");
+        gameOver.SetActive(true); 
+    }
     
 }
