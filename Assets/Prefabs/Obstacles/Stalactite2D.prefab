@@ -135,8 +135,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0.5}
-      - {x: -0.25, y: -0.5}
-      - {x: 0.25, y: -0.5}
+      - {x: -0.25, y: -0.47}
+      - {x: 0.25, y: -0.47}
 --- !u!114 &2509658964783592403
 MonoBehaviour:
   m_ObjectHideFlags: 0
