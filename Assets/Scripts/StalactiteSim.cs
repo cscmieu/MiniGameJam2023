@@ -80,7 +80,7 @@ public class StalactiteSim : MonoBehaviour
             var hitToTheRight = other.transform.position.x > transform.position.x;
             EffectManager.KnockBackToTheRight = hitToTheRight;
         }
-        else if (other.gameObject.layer == 6)
+        else if (other.gameObject.layer == 0)
         {
             _hasFallen = true;
         }
