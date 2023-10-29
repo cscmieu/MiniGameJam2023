@@ -93,9 +93,6 @@ public class CinematicManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         player.inCinematic = false;
-        tileDecayManager.gameObject.SetActive(true);
-        AudioManager.Instance.PlayMusic("MainMusic", true);
-        managerScore.SetActive(true);
     }
 
     private IEnumerator EndAnimCoroutine()
