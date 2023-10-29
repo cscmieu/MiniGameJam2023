@@ -19,9 +19,13 @@ public class CameraMovement : MonoBehaviour
     private Vector3 velocity;
     public bool isInStartCinematic;
     public bool isInEndCinematic;
-    // Update is called once per frame
+
+    private bool _istargetNull;
+
     void Update()
     {
+        if (target is null) return;
+        
         if (isInStartCinematic)
         {
             transform.position = target.transform.position;
