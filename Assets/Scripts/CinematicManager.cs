@@ -6,12 +6,19 @@ public class CinematicManager : MonoBehaviour
 {
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Transform startPosition;
-    [SerializeField] private Transform endPosition;
+    [SerializeField] private Transform endRopePosition;
+    [SerializeField] private Transform finalPosition;
     [SerializeField] private CameraMovement cam;
     [SerializeField] private float timeToDescend = 5f;
     [SerializeField] private TileDecayManager tileDecayManager;
+    
     private Vector3 velocity;
- 
+    private bool ropeEnd = false;
+    
+    private static readonly int       speed           = Animator.StringToHash("Speed");
+    private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
+    private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
+    
     void Start()
     {
         player.inCinematic = true;
@@ -19,21 +26,47 @@ public class CinematicManager : MonoBehaviour
         player.rb.isKinematic = true;
         player.transform.position = startPosition.position;
         cam.transform.position = startPosition.position;
+
+        StartCoroutine(AnimCoroutine());
     }
 
-    private void Update()
+    private IEnumerator AnimCoroutine()
     {
-        player.transform.position = Vector3.SmoothDamp(player.transform.position, endPosition.position, ref velocity, timeToDescend);
-
-        if (Vector3.Distance(player.transform.position,endPosition.transform.position) < 2f)
+        player.playerAnimator.SetBool(isTouchingRope, true);
+        player.playerAnimator.SetFloat(isClimbingRope, 1);
+        
+        while (Vector3.Distance(player.transform.position, endRopePosition.transform.position) > 2f)
         {
-            tileDecayManager.gameObject.SetActive(true);
-            player.inCinematic = false;
-            cam.isInCinematic = false;
-            player.rb.isKinematic = false;
-            AudioManager.Instance.PlayMusic("MainMusic", true);
-            Destroy(gameObject);
+            player.transform.position = Vector3.SmoothDamp(player.transform.position, endRopePosition.position, ref velocity, timeToDescend);
+            yield return null;
         }
-    }
+        
+        
+        cam.isInCinematic = false;
+        player.rb.isKinematic = false;
+        player.playerAnimator.SetBool(isTouchingRope, false);
+        player.playerAnimator.SetFloat(isClimbingRope, 0);
+        player.playerAnimator.SetFloat(speed, 0);
+        
+        yield return new WaitForSeconds(1);
 
+        float time = .2f;
+        while (time > 0)
+        {
+            player.playerAnimator.SetFloat(speed, 1);
+            player.rb.velocity = new Vector2(8, 0);
+            time -= Time.deltaTime;
+            yield return null;
+        }
+        
+        player.rb.velocity = new Vector2(0, 0);
+        player.playerAnimator.SetFloat(speed, 0);
+        
+        yield return new WaitForSeconds(1);
+        
+        player.inCinematic = false;
+        tileDecayManager.gameObject.SetActive(true);
+        AudioManager.Instance.PlayMusic("MainMusic", true);
+        Destroy(gameObject);
+    }
 }

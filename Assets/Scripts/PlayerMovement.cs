@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float hitInputDisabledDuration = 0.4f;
     [SerializeField] private float stunInputDisabledDuration = 0.8f;
     [SerializeField] private Vector2     knockBackStr = new(10f, 10f);
-    [SerializeField] private Animator    playerAnimator;
     [SerializeField] private float       moveSpeed     = 8f;
     [SerializeField] private float       jumpingPower  = 16f;
     [SerializeField] private float       climbingSpeed = 8f;
@@ -31,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   groundLayer;
     [SerializeField] private LayerMask   ropeLayer;
 
+    public Animator    playerAnimator;
     public Rigidbody2D rb;
     public bool inCinematic;
     public                  Transform cameraTarget;
@@ -46,8 +46,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inCinematic)
         {
-            playerAnimator.SetBool(isTouchingRope, true);
-            playerAnimator.SetFloat(isClimbingRope, 1);
             return;
         }
 
