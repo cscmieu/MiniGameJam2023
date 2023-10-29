@@ -12,7 +12,7 @@ public class RelicManager : MonoBehaviour
         relicAnimator.SetBool("triggerBreak", true);
     }
 
-    private void OnDestroy()
+    public void LaunchGame()
     {
         tileDecayManager.gameObject.SetActive(true);
         AudioManager.Instance.PlayMusic("MainMusic", true);

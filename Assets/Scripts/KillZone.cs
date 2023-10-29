@@ -19,11 +19,17 @@ public class KillZone : MonoBehaviour
             score.SetActive(false);
             time.SetActive(false);
             StartCoroutine(GameOverCoroutine());
+
+            cam.isDead = true;
+            other.gameObject.GetComponent<PlayerMovement>().inCinematic = true;
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        cam.isDead = true;
-        other.gameObject.GetComponent<PlayerMovement>().inCinematic = true;
-        other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        else
+        {
+            Destroy(other.gameObject);
+        }
+        
     }
 
     private IEnumerator GameOverCoroutine()
