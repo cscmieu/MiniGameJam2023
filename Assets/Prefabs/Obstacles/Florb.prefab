@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4972109651002457702}
   - component: {fileID: 4972109651002457703}
   - component: {fileID: -391093306327699377}
+  - component: {fileID: 6845722278139359896}
   m_Layer: 8
   m_Name: Florb
   m_TagString: Untagged
@@ -128,10 +129,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.3125, y: 0.5}
-      - {x: -0.5, y: 0.3125}
-      - {x: -0.5, y: -0.3125}
-      - {x: -0.3125, y: -0.5}
+    - - {x: 0.38265792, y: 0.30010784}
+      - {x: 0.45591208, y: 0.17137095}
+      - {x: 0.41822818, y: 0.008034817}
+      - {x: 0.41822827, y: -0.2400083}
+      - {x: 0.3012631, y: -0.36468208}
       - {x: 0.3125, y: -0.5}
       - {x: 10.258942, y: -2.0595202}
       - {x: 25.801846, y: -5.7103763}
@@ -161,6 +163,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &6845722278139359896
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972109651002457723}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &4972109651048009544
 GameObject:
   m_ObjectHideFlags: 0
