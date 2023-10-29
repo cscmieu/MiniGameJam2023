@@ -57,6 +57,7 @@ public class GameMenu : MonoBehaviour
         AudioManager.Instance.StopMusic("MainMusic");
         AudioManager.Instance.StopMusic("Descent");
         AudioManager.Instance.SetMusicVolume(.5f);
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
