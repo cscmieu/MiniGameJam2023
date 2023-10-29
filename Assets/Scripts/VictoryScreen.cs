@@ -21,7 +21,8 @@ public class VictoryScreen : MonoBehaviour
         scoreTresors.text = scoreTresors.text + ScoreManager.score;
         int timeScore = (int) (1 / ScoreManager.time * 30000);
         scoreTime.text = scoreTime.text + timeScore;
-        scoreTotal.text = scoreTotal.text + (2*ScoreManager.score + timeScore - ScoreManager.malus);
+        scoreMalus.text = scoreMalus.text + ScoreManager.malus;
+        scoreTotal.text = scoreTotal.text + (ScoreManager.score + timeScore - ScoreManager.malus);
     }
 
     

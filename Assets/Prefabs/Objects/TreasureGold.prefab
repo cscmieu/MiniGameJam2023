@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1272927545
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1672978957, guid: 6f2addf41f244874e84370356f59b9ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a490d5219727ab4409fe2b506bbaf358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 10
+  value: 20
   vfx: Gold
 --- !u!61 &297979061121939332
 BoxCollider2D:

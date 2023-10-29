@@ -70,7 +70,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && (_touchFloor || _touchRope))
             {
-                AudioManager.Instance.PlaySFX("Jump");
+                if (_touchFloor)
+                {
+                    AudioManager.Instance.PlaySFX("Jump");
+                }
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
             }
 
