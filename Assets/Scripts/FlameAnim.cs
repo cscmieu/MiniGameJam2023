@@ -3,38 +3,57 @@ using UnityEngine;
 public class FlameAnim : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private float waitDuration = 0.4f;
-    private bool switchBool;
+    [SerializeField] private double activeTime = 2f;
+    [SerializeField] private double disabledTime = 2f;
+    [SerializeField] private double hitBoxDelay = 0.2f;
+    private bool inDelay;
     private float elapsedTime;
-    public static bool FlammeStart;
-    public static bool FlammeStop;
+    private bool FlammeActive;
 
     private void FixedUpdate()
-    {
-        if (FlammeStart)
+    { 
+        if (!FlammeActive && !inDelay)
         {
-            FlammeStart = false;
-            animator.SetBool("FlammeStart", true);
-            switchBool = true;
-        }
-
-        if (FlammeStop)
-        {
-            FlammeStop = false;
             animator.SetBool(("FlammeStop"),true);
-            switchBool = true;
         }
-
-        if (switchBool)
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= activeTime && FlammeActive)
         {
-            elapsedTime += Time.deltaTime;
-            if (elapsedTime > waitDuration)
-            {
-                elapsedTime = 0;
-                switchBool = false;
-                animator.SetBool("FlammeStart", false);
-                animator.SetBool(("FlammeStop"),false);
-            }
+            elapsedTime = 0;
+            ToggleFlame();
+        }
+        else if ((elapsedTime >= disabledTime - hitBoxDelay) && (elapsedTime < disabledTime) && !FlammeActive)
+        {
+            animator.SetBool("FlammeStop", false);
+            inDelay = true;
+        }
+        else if ((elapsedTime >= disabledTime) && !FlammeActive)
+        {
+            elapsedTime = 0;
+            ToggleFlame();
+        }
+    }
+    private void ToggleFlame()
+    {
+        if (!FlammeActive)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            FlammeActive = true;
+            inDelay = false;
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+            FlammeActive = false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            EffectManager.KnockBackTriggered = true;
+            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            EffectManager.KnockBackToTheRight = hitToTheRight;
         }
     }
 }

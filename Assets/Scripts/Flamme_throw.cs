@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+/*using UnityEngine;
 
 public class Flamme_throw : MonoBehaviour
 {
@@ -51,4 +51,4 @@ public class Flamme_throw : MonoBehaviour
             EffectManager.KnockBackToTheRight = hitToTheRight;
         }
     }
-}
+}*/
