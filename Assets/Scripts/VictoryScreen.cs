@@ -19,7 +19,7 @@ public class VictoryScreen : MonoBehaviour
         AudioManager.Instance.SetMusicVolume(.2f);
         AudioManager.Instance.PlaySFX("Win");
         scoreTresors.text = scoreTresors.text + ScoreManager.score;
-        int timeScore = (int) (1 / ScoreManager.time * 30000);
+        int timeScore = (int) (1 / ScoreManager.time * 5000);
         scoreTime.text = scoreTime.text + timeScore;
         scoreMalus.text = scoreMalus.text + ScoreManager.malus;
         scoreTotal.text = scoreTotal.text + (ScoreManager.score + timeScore - ScoreManager.malus);
