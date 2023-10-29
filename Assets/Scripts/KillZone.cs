@@ -19,9 +19,10 @@ public class KillZone : MonoBehaviour
 
     private IEnumerator GameOverCoroutine()
     {
+        AudioManager.Instance.StopMusic("MainMusic");
         yield return new WaitForSeconds(1.5f);
         AudioManager.Instance.PlaySFX("GameOver");
-        AudioManager.Instance.PlayMusic("Descent");
+        // AudioManager.Instance.PlayMusic("Descent"); // bug pour l'instant
         gameOver.SetActive(true); 
     }
     

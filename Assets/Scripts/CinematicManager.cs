@@ -14,7 +14,7 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject victoryScreen;
     
     private Vector3 velocity;
-    
+
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
     private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
