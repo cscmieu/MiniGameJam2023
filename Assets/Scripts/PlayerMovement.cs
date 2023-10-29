@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform   leftWallCheck2;
     [SerializeField] private LayerMask   groundLayer;
     [SerializeField] private LayerMask   ropeLayer;
-    [SerializeField] private GameObject lamp;
     
+    public GameObject lamp;
     public Animator    playerAnimator;
     public Rigidbody2D rb;
     public bool inCinematic;

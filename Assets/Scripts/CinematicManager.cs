@@ -28,7 +28,8 @@ public class CinematicManager : MonoBehaviour
         player.rb.isKinematic = true;
         player.transform.position = startPosition.position;
         cam.transform.position = startPosition.position;
-    
+        player.lamp.transform.localRotation = Quaternion.Euler(0,0,180);
+        
         StartCoroutine(StartAnimCoroutine());
     }
 
@@ -63,6 +64,7 @@ public class CinematicManager : MonoBehaviour
         player.playerAnimator.SetBool(isTouchingRope, false);
         player.playerAnimator.SetFloat(isClimbingRope, 0);
         player.playerAnimator.SetFloat(speed, 0);
+        player.lamp.transform.localRotation = Quaternion.Euler(0,0,-90);
         
         yield return new WaitForSeconds(1);
 
