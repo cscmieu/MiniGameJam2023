@@ -67,13 +67,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
             {
-                AudioManager.Instance.PlaySFX("Jump");
+                //AudioManager.Instance.PlaySFX("Jump");
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
             }
 
             if (Input.GetButtonDown("Jump") && touchWall)
             {
-                AudioManager.Instance.PlaySFX("WallJump");
+                //AudioManager.Instance.PlaySFX("WallJump");
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
             }
 
@@ -113,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _isHit = true;
             _inputDisabled = true;
+            playerAnimator.SetBool("isHurt", true);
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(knockBackDirection * knockBackStr.x, knockBackStr.y);
         }
@@ -121,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _isStunned = true;
             _inputDisabled = true;
+            playerAnimator.SetBool("isStunned", true);
             EffectManager.StunTriggered = false;
             rb.velocity = new Vector2(0, 0);
         }
@@ -140,11 +142,13 @@ public class PlayerMovement : MonoBehaviour
         if (_elapsedTime > hitInputDisabledDuration)
         {
             _isHit = false;
+            playerAnimator.SetBool("isHurt", false);
         }
 
         if (_elapsedTime > stunInputDisabledDuration)
         {
             _isStunned = false;
+            playerAnimator.SetBool("isStunned", false);
         }
 
         if (_elapsedTime > bumpInputDisabledDuration)
