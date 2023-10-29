@@ -55,6 +55,11 @@ public class CinematicManager : MonoBehaviour
         
         while (Vector3.Distance(player.transform.position, endRopePosition.transform.position) > 2f)
         {
+            if (Input.GetButtonDown("Jump"))
+            {
+                player.transform.position = endRopePosition.position;
+                cam.transform.position = endRopePosition.position;
+            }
             player.transform.position = Vector3.SmoothDamp(player.transform.position, endRopePosition.position, ref velocity, timeToDescend);
             yield return null;
         }
