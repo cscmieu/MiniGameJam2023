@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1272927545
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 92d9cf0b92e5bd7409b586ccd5369ade, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c24e59a63971734f9eefa12cee9db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeperiod: 2
+  activePeriod: 2
   flashlight: {fileID: 4972109651048009590}
   intensity: 0.5
 --- !u!60 &4972109651002457703
@@ -133,9 +133,9 @@ PolygonCollider2D:
       - {x: -0.3125, y: -0.5}
       - {x: 0.3125, y: -0.5}
       - {x: 10.258942, y: -2.0595202}
-      - {x: 17.962435, y: -2.0555148}
-      - {x: 22.806581, y: -4.553612}
-      - {x: 22.757412, y: -2.0405707}
+      - {x: 25.801846, y: -5.7103763}
+      - {x: 15.129063, y: -1.3244557}
+      - {x: 29.749317, y: -6.278091}
       - {x: 30.818296, y: -2.1694312}
       - {x: 32.202404, y: 2.7992039}
       - {x: 0.3125, y: 0.5}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
