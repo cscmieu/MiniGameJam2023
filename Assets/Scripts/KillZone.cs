@@ -7,16 +7,16 @@ public class KillZone : MonoBehaviour
 {
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private TextMeshPro score;
-    [SerializeField] private TextMeshPro time;
+    [SerializeField] private GameObject score;
+    [SerializeField] private GameObject time;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 6)
         {
             AudioManager.Instance.PlaySFX("Death");
             pauseMenu.SetActive(false);
-            score.gameObject.SetActive(false);
-            time.gameObject.SetActive(false);
+            score.SetActive(false);
+            time.SetActive(false);
             StartCoroutine(GameOverCoroutine());
         }
         
