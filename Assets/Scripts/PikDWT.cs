@@ -5,6 +5,9 @@ using UnityEngine;
 public class PikDWT : MonoBehaviour
 {
     public Animator animator;
+
+    private static readonly int isActivated = Animator.StringToHash("isActivated");
+
     //private bool activated;
     //private bool stopmove;
     private void Update()
@@ -12,7 +15,7 @@ public class PikDWT : MonoBehaviour
         if (gameObject.activeSelf)
         {
             StartCoroutine(Waiting());
-            animator.SetBool("activated", true);
+            animator.SetBool(isActivated, true);
         }
     }
     
