@@ -5,39 +5,36 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] public Button startButton;
-    [SerializeField] public Button quitButton;
-    [SerializeField] public Button creditsButton;
     [SerializeField] public GameObject creditsPanel;
     [SerializeField] public GameObject menuPanel;
-    [SerializeField] public Button exitCreditsButton;
 
     private void Start()
     {
         Cursor.visible = true;
-        startButton.onClick.AddListener(StartGame);
-        quitButton.onClick.AddListener(QuitGame);
-        creditsButton.onClick.AddListener(OpenCredits);
-        exitCreditsButton.onClick.AddListener(ExitCredits);
     }
 
-    private void StartGame()
+    public void StartGameEasy()
     {
         SceneManager.LoadScene(1);
     }
+    
+    public void StartGameHard()
+    {
+        SceneManager.LoadScene(2);
+    }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
 
-    private void OpenCredits()
+    public void OpenCredits()
     {
         creditsPanel.SetActive(true);
         menuPanel.SetActive(false);
     }
 
-    private void ExitCredits()
+    public void ExitCredits()
     {
         creditsPanel.SetActive(false);
         menuPanel.SetActive(true);

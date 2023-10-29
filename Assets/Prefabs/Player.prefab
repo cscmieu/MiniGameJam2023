@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fd4543c6226574c87c899f7d13c573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timetext: {fileID: 1223597926}
+  timeText: {fileID: 1223597926}
 --- !u!1 &1255761004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8f7b7288c09f64bb27364383d54cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputDisabled: 0
+  InputDisabled: 0
   bumpInputDisabledDuration: 0.3
   hitInputDisabledDuration: 0.4
   stunInputDisabledDuration: 1
