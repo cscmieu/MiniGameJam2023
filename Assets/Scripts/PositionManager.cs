@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class PositionManager : MonoBehaviour
 {
-    private Transform pos;
     private int id;
     [SerializeField] List<Transform> listPosition;
-    [SerializeField] List<GameObject> objects; // objets à instantier
+    [SerializeField] List<GameObject> objects; // objets ï¿½ instantier
 
     void Start()
     {
         for (int i = 0; i < objects.Count; i++)
         {
+            Transform pos;
             id = Random.Range(0, listPosition.Count);
             pos = listPosition[id];
             listPosition.Remove(listPosition[id]);
-            Instantiate(objects[i], pos);
+            var spawnedObj = Instantiate(objects[i], pos.position, Quaternion.identity);
+            
         }
 
     }

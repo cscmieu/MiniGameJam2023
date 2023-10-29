@@ -13,7 +13,6 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private TileDecayManager tileDecayManager;
     
     private Vector3 velocity;
-    private bool ropeEnd = false;
     
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
