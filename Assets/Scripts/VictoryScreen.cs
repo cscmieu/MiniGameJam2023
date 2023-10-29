@@ -13,6 +13,9 @@ public class VictoryScreen : MonoBehaviour
     private TMP_Text scoreMalus;
     [SerializeField] 
     private TMP_Text scoreTotal;
+    [SerializeField] 
+    private GameObject button;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,22 @@ public class VictoryScreen : MonoBehaviour
         scoreTime.text = scoreTime.text + timeScore;
         scoreMalus.text = scoreMalus.text + ScoreManager.malus;
         scoreTotal.text = scoreTotal.text + (ScoreManager.score + timeScore - ScoreManager.malus);
+
+        StartCoroutine(VictoryCoroutine());
+    }
+
+    private IEnumerator VictoryCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        scoreTresors.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        scoreTime.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        scoreMalus.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        scoreTotal.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        button.SetActive(true);
     }
 
     

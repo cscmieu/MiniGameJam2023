@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CinematicManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject managerScore;
     [SerializeField] private GameObject scoreDisplay;
     [SerializeField] private GameObject timeDisplay;
+    [SerializeField] private Light2D light;
+    [SerializeField] private Color lightEndColor;
     
     private Vector3 _velocity;
 
@@ -25,6 +28,8 @@ public class CinematicManager : MonoBehaviour
 
     public void Start()
     {
+        scoreDisplay.SetActive(false);
+        timeDisplay.SetActive(false);
         AudioManager.Instance.PlayMusic("Descent");
         player.inCinematic = true;
         cam.isInStartCinematic = true;
@@ -38,6 +43,7 @@ public class CinematicManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("trigger : " + col.gameObject);
         cam.isInEndCinematic = true;
         player.inCinematic = true;
 
@@ -49,6 +55,7 @@ public class CinematicManager : MonoBehaviour
         transform1.localScale = localScale;
         
         StartCoroutine(EndAnimCoroutine());
+        StartCoroutine(LightCoroutine());
     }
 
     private IEnumerator StartAnimCoroutine()
@@ -93,10 +100,14 @@ public class CinematicManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         
         player.inCinematic = false;
+        
+        scoreDisplay.SetActive(true);
+        timeDisplay.SetActive(true);
     }
 
     private IEnumerator EndAnimCoroutine()
     {
+        player.lamp.SetActive(false);
         player.playerAnimator.SetBool(isTouchingRope, false);
         player.playerAnimator.SetFloat(isClimbingRope, 0);
         scoreDisplay.SetActive(false);
@@ -120,6 +131,23 @@ public class CinematicManager : MonoBehaviour
         
         yield return new WaitForSeconds(2);
         
+        var localScale = player.transform.localScale;
+        localScale.x = -1f;
+        player.transform.localScale =  localScale;
+        
         victoryScreen.SetActive(true);
+    }
+
+    private IEnumerator LightCoroutine()
+    {
+        float elapsedTime = 0;
+        float timeTakes = 1f;
+        while (elapsedTime < timeTakes)
+        {
+            light.color = Color.Lerp(light.color, lightEndColor, (elapsedTime / timeTakes));
+            light.intensity = Mathf.Lerp(light.intensity, 0.7f, (elapsedTime / timeTakes));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
