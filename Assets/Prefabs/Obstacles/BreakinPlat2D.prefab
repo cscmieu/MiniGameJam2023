@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 967687837126129592}
   - component: {fileID: 967687837126129596}
   - component: {fileID: 4239543088577042865}
+  - component: {fileID: -5460301380632681476}
   m_Layer: 0
   m_Name: BreakinPlat2D
   m_TagString: Untagged
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1272927545
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1968109045, guid: f1d449cf12f630a428a99d9ebcbe8518, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -175,3 +176,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 0.05}
   m_EdgeRadius: 0
+--- !u!50 &-5460301380632681476
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967687837126129597}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

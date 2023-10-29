@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4972109651002457720}
   - component: {fileID: 4972109651002457702}
   - component: {fileID: 4972109651002457703}
+  - component: {fileID: -391093306327699377}
   m_Layer: 8
   m_Name: Florb
   m_TagString: Untagged
@@ -139,6 +140,27 @@ PolygonCollider2D:
       - {x: 30.818296, y: -2.1694312}
       - {x: 32.202404, y: 2.7992039}
       - {x: 0.3125, y: 0.5}
+--- !u!50 &-391093306327699377
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972109651002457723}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4972109651048009544
 GameObject:
   m_ObjectHideFlags: 0
