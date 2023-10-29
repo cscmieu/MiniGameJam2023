@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 7470885133337311187}
   - component: {fileID: -6503003131713391156}
   - component: {fileID: 8696258704154560647}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Swamp2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
