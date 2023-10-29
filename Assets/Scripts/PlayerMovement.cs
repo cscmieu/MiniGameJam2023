@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int         isTouchingWall  = Animator.StringToHash("isTouchingWall");
     private static readonly int         airSpeed        = Animator.StringToHash("AirSpeed");
     private static readonly int         isTouchingFloor = Animator.StringToHash("isTouchingFloor");
-    private static readonly int         isClimbingRope  = Animator.StringToHash("isClimbingRope");
     private static readonly int         isTouchingRope  = Animator.StringToHash("isTouchingRope");
     private static readonly int         isHurt          = Animator.StringToHash("isHurt");
     private static readonly int         isStunned       = Animator.StringToHash("isStunned");
@@ -70,11 +69,19 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
         playerAnimator.SetBool(isStunned, _isStunned);
         playerAnimator.SetBool(isHurt, _isHit);
+        if (_touchRope)
+        {
+            lamp.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            lamp.transform.localRotation = Quaternion.Euler(0, 0, -90);
+        }
         // Jump
         var ySpeed = EffectManager.SlownessTriggered ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!InputDisabled)
         {
-            if (Input.GetButtonDown("Jump") && (_touchFloor || _touchRope))
+            if (Input.GetButtonDown("Jump") && _touchFloor)
             {
                 if (_touchFloor)
                 {
@@ -88,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
                 AudioManager.Instance.PlaySFX("WallJump");
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
             }
-
             if (Input.GetButtonUp("Jump") &&
                 rb.velocity.y > 0f) // en rajoutant (&& !TouchRope()) on ne descend pas quand on touche la corde 
             {
@@ -99,17 +105,19 @@ public class PlayerMovement : MonoBehaviour
         // Grimper à la corde
         if (_vertical > 0.9f && _touchRope)
         {
-            lamp.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.position = new Vector2(5.5f,          rb.position.y);
             var velocity = rb.velocity;
             velocity    = new Vector2(velocity.x, climbingSpeed);
             rb.velocity = velocity;
-            playerAnimator.SetFloat(isClimbingRope, velocity.y);
         }
-        else
+        else if (Input.GetButtonDown("Jump") && _touchRope)
         {
-            lamp.transform.localRotation = Quaternion.Euler(0,0,-90);
+            AudioManager.Instance.PlaySFX("WallJump");
+            rb.position = new Vector2(5.5f,          rb.position.y);
+            rb.velocity = new Vector2(rb.velocity.x, ySpeed);
         }
+        
+        
 
         Flip();
     }

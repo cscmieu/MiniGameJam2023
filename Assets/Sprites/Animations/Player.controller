@@ -8,9 +8,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: isClimbingRope
-    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: isTouchingRope
     m_EventTreshold: 0
@@ -63,9 +60,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: isClimbingRope
-    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: isTouchingRope
     m_EventTreshold: 0

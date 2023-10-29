@@ -22,6 +22,6 @@ public class DontStepHereTwice : MonoBehaviour
         
         if (!(_elapsedTime > delayBeforeActivation)) return;
         
-        spikesPosition.gameObject.SetActive(true);
+            spikesPosition.gameObject.SetActive(true);
     }
 }
