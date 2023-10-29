@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 26839310}
   - component: {fileID: 26839309}
   - component: {fileID: 26839308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 101783862}
   - component: {fileID: 101783864}
   - component: {fileID: 101783863}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 162565700}
   - component: {fileID: 162565702}
   - component: {fileID: 162565701}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreTemps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 225949171}
   - component: {fileID: 225949170}
   - component: {fileID: 225949172}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 558510536}
   - component: {fileID: 558510538}
   - component: {fileID: 558510535}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 747552012}
   - component: {fileID: 747552014}
   - component: {fileID: 747552013}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 791021223}
   - component: {fileID: 791021225}
   - component: {fileID: 791021224}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreMalus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 885300007}
   - component: {fileID: 885300009}
   - component: {fileID: 885300008}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreTotal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1312,7 @@ GameObject:
   - component: {fileID: 898315570}
   - component: {fileID: 898315569}
   - component: {fileID: 898315568}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ GameObject:
   - component: {fileID: 1183014595}
   - component: {fileID: 1183014597}
   - component: {fileID: 1183014596}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1714,7 +1714,7 @@ GameObject:
   - component: {fileID: 1255761007}
   - component: {fileID: 1255761006}
   - component: {fileID: 1255761005}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 1312409132}
   - component: {fileID: 1312409131}
   - component: {fileID: 1312409130}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1944,7 +1944,7 @@ GameObject:
   - component: {fileID: 1656887121}
   - component: {fileID: 1656887123}
   - component: {fileID: 1656887122}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreTresors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2081,7 +2081,7 @@ GameObject:
   - component: {fileID: 1716231245}
   - component: {fileID: 1716231244}
   - component: {fileID: 1716231243}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

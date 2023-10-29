@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class DontStepHereTwice : MonoBehaviour
 {
-    [SerializeField] private float delayBeforeActivation = 0.2f;
-    private float _elapsedTime;
-    private bool _isTriggered;
+    [SerializeField] private float     delayBeforeActivation = 0.2f;
+    [SerializeField] private Transform Connarddemerde;
+    private                  float     _elapsedTime;
+    private                  bool      _isTriggered;
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -21,6 +22,6 @@ public class DontStepHereTwice : MonoBehaviour
         
         if (!(_elapsedTime > delayBeforeActivation)) return;
         
-        transform.GetChild(0).gameObject.SetActive(true);
+        Connarddemerde.gameObject.SetActive(true);
     }
 }
