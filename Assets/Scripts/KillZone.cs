@@ -5,6 +5,7 @@ using Button = UnityEngine.UI.Button;
 
 public class KillZone : MonoBehaviour
 {
+    [SerializeField] private CameraMovement cam;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject score;
@@ -19,8 +20,10 @@ public class KillZone : MonoBehaviour
             time.SetActive(false);
             StartCoroutine(GameOverCoroutine());
         }
-        
-	    Destroy(other.gameObject);
+
+        cam.isDead = true;
+        other.gameObject.GetComponent<PlayerMovement>().inCinematic = true;
+        other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private IEnumerator GameOverCoroutine()

@@ -16,12 +16,13 @@ public class CameraMovement : MonoBehaviour
     private Vector3 _velocity;
     public bool isInStartCinematic;
     public bool isInEndCinematic;
+    public bool isDead = false;
 
     private bool _isTargetNull;
 
     void Update()
     {
-        if (target is null) return;
+        if (target is null || isDead) return;
         
         if (isInStartCinematic)
         {
