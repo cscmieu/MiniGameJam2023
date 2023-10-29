@@ -74,15 +74,18 @@ public class StalactiteSim : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 6)
+        switch (other.gameObject.layer)
         {
-            EffectManager.KnockBackTriggered = true;
-            var hitToTheRight = other.transform.position.x > transform.position.x;
-            EffectManager.KnockBackToTheRight = hitToTheRight;
-        }
-        else if (other.gameObject.layer == 0)
-        {
-            _hasFallen = true;
+            case 6:
+            {
+                EffectManager.KnockBackTriggered = true;
+                var hitToTheRight = other.transform.position.x > transform.position.x;
+                EffectManager.KnockBackToTheRight = hitToTheRight;
+                break;
+            }
+            case 0:
+                _hasFallen = true;
+                break;
         }
     }
 }
