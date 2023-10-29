@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982088865379406157}
   - component: {fileID: 982088865379406156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlammeThrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bbdd12027ca4a92429e8ae5b618cd552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 982088865459025893}
   - component: {fileID: 982088865459025898}
   - component: {fileID: 982088865459025899}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlammeAnim3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,8 +220,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982088866230952917}
   - component: {fileID: 982088866230952922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlammeSize3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982088866230952923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8208637, y: 0.37352896, z: -0.16861068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -306,8 +306,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

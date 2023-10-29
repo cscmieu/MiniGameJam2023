@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2509658964783592402}
   - component: {fileID: 2509658964783592403}
   - component: {fileID: 2509658964783592405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stalactite2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2509658964783592239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.49, y: 3.81, z: -0.11843169}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6d8b4a34407a0314caffa2452fdaa2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundDistance: 20
   acceleration: 15
-  maxspeed: 15
+  maxSpeed: 15
   totalAdditionalFallLength: 0.2
 --- !u!68 &2509658964783592405
 EdgeCollider2D:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6322154672790780284}
   - component: {fileID: 6322154672790780285}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlameThrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bbdd12027ca4a92429e8ae5b618cd552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6322154673272068858}
   - component: {fileID: 6322154673272068807}
   - component: {fileID: 8290483598012456665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlammeAnim
   m_TagString: Treasure
   m_Icon: {fileID: 0}
@@ -178,8 +178,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6322154673430691448}
   - component: {fileID: 6322154673430691449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlammeSize2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,8 +306,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1272927545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
