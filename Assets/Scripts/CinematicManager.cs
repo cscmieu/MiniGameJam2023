@@ -11,25 +11,42 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private CameraMovement cam;
     [SerializeField] private float timeToDescend = 5f;
     [SerializeField] private TileDecayManager tileDecayManager;
+    [SerializeField] private GameObject victoryScreen;
     
     private Vector3 velocity;
     
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
     private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
+    private static readonly int       isTouchingFloor = Animator.StringToHash("isTouchingFloor");
+    private static readonly int       airSpeed        = Animator.StringToHash("AirSpeed");
     
     void Start()
     {
         player.inCinematic = true;
-        cam.isInCinematic = true;
+        cam.isInStartCinematic = true;
         player.rb.isKinematic = true;
         player.transform.position = startPosition.position;
         cam.transform.position = startPosition.position;
-
-        StartCoroutine(AnimCoroutine());
+    
+        StartCoroutine(StartAnimCoroutine());
     }
 
-    private IEnumerator AnimCoroutine()
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        cam.isInEndCinematic = true;
+        
+        player.rb.AddForce(new Vector2(10,6), ForceMode2D.Impulse);
+        player.inCinematic = true;
+       
+        Vector3 localScale = player.transform.localScale;
+        localScale.x = 1f;
+        player.transform.localScale = localScale;
+        
+        StartCoroutine(EndAnimCoroutine());
+    }
+
+    private IEnumerator StartAnimCoroutine()
     {
         player.playerAnimator.SetBool(isTouchingRope, true);
         player.playerAnimator.SetFloat(isClimbingRope, 1);
@@ -41,7 +58,7 @@ public class CinematicManager : MonoBehaviour
         }
         
         
-        cam.isInCinematic = false;
+        cam.isInStartCinematic = false;
         player.rb.isKinematic = false;
         player.playerAnimator.SetBool(isTouchingRope, false);
         player.playerAnimator.SetFloat(isClimbingRope, 0);
@@ -66,6 +83,32 @@ public class CinematicManager : MonoBehaviour
         player.inCinematic = false;
         tileDecayManager.gameObject.SetActive(true);
         AudioManager.Instance.PlayMusic("MainMusic", true);
-        Destroy(gameObject);
+    }
+
+    private IEnumerator EndAnimCoroutine()
+    {
+        player.playerAnimator.SetBool(isTouchingRope, false);
+        player.playerAnimator.SetFloat(isClimbingRope, 0);
+        
+        yield return new WaitForSeconds(.2f);
+        
+        player.playerAnimator.SetBool(isTouchingFloor, true);
+        player.playerAnimator.SetFloat(airSpeed, 0);
+        
+        float time = 2f;
+        while (time > 0)
+        {
+            player.playerAnimator.SetFloat(speed, 1);
+            player.rb.velocity = new Vector2(2, player.rb.velocity.y);
+            time -= Time.deltaTime;
+            yield return null;
+        }
+        
+        player.rb.velocity = new Vector2(0, 0);
+        player.playerAnimator.SetFloat(speed, 0);
+        
+        yield return new WaitForSeconds(2);
+        
+        victoryScreen.SetActive(true);
     }
 }

@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform   leftWallCheck2;
     [SerializeField] private LayerMask   groundLayer;
     [SerializeField] private LayerMask   ropeLayer;
-
+    [SerializeField] private GameObject lamp;
+    
     public Animator    playerAnimator;
     public Rigidbody2D rb;
     public bool inCinematic;
@@ -86,9 +87,14 @@ public class PlayerMovement : MonoBehaviour
         // Grimper à la corde
         if (vertical > 0f && touchRope)
         {
+            lamp.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.position = new Vector2(5.5f,          rb.position.y);
             rb.velocity = new Vector2(rb.velocity.x, climbingSpeed);
             playerAnimator.SetFloat(isClimbingRope, rb.velocity.y);
+        }
+        else
+        {
+            lamp.transform.localRotation = Quaternion.Euler(0,0,-90);
         }
 
         Flip();

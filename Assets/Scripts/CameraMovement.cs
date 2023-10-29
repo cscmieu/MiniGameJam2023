@@ -12,14 +12,25 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] 
     private float xMin = -1, xMax = 12, speed = .5f;
 
+    [SerializeField] 
+    private Transform endCinematicTarget;
+    
+    
     private Vector3 velocity;
-    public bool isInCinematic;
+    public bool isInStartCinematic;
+    public bool isInEndCinematic;
     // Update is called once per frame
     void Update()
     {
-        if (isInCinematic)
+        if (isInStartCinematic)
         {
             transform.position = target.transform.position;
+            return;
+        }
+
+        if (isInEndCinematic)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, endCinematicTarget.position, ref velocity, 3);
             return;
         }
 
