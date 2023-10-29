@@ -12,7 +12,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] public GameObject menuPanel;
     [SerializeField] public Button exitCreditsButton;
 
-    void Start()
+    private void Start()
     {
         startButton.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
@@ -20,23 +20,23 @@ public class ButtonManager : MonoBehaviour
         exitCreditsButton.onClick.AddListener(ExitCredits);
     }
 
-    void StartGame()
+    private void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
-    void QuitGame()
+    private void QuitGame()
     {
         Application.Quit();
     }
 
-    void OpenCredits()
+    private void OpenCredits()
     {
         creditsPanel.SetActive(true);
         menuPanel.SetActive(false);
     }
 
-    void ExitCredits()
+    private void ExitCredits()
     {
         creditsPanel.SetActive(false);
         menuPanel.SetActive(true);

@@ -1,44 +1,56 @@
+using System;
 using UnityEngine;
 
 public class AngryBlock : MonoBehaviour
 {
-    private float animationtime;
-    private bool stop = true;
-    public Animator animator;
+    private                  float         _animationtime;
+    private                  bool          _stop = true;
+    private                  Rigidbody2D   _rb;
+    public                   Animator      animator;
     [SerializeField] private BoxCollider2D detection;
+    private static readonly  int           destroyed = Animator.StringToHash("destroyed");
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Player"))
+        if (other.gameObject.layer == 6)
         {
             EffectManager.KnockBackTriggered = true;
             bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
             EffectManager.KnockBackToTheRight = hitToTheRight;
         }
-        stop = true;
-        animator.SetBool("destroyed", true);
+        _stop = true;
+        animator.SetBool(destroyed, true);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         detection.enabled = false;
     }
 
     private void Update()
     {
-        if (animator.GetBool("destroyed"))
+        if (animator.GetBool(destroyed))
         {
-            animationtime += Time.deltaTime;
-            if (animationtime >= 0.2f)
+            _animationtime += Time.deltaTime;
+            if (_animationtime >= 0.2f)
             {
                 Destroy(gameObject);
             }
         }
         else
         {
-            stop = (!(detection.IsTouchingLayers(LayerMask.GetMask("Player"))) && stop);
-            if (!stop)
+            _stop = (!(detection.IsTouchingLayers(LayerMask.GetMask("Player"))) && _stop);
+            if (!_stop)
             {
-                Vector2 veloc =
-                    new Vector2(-0.1f * gameObject.transform.right.x + GetComponent<Rigidbody2D>().velocity.x,
-                        -0.1f * gameObject.transform.right.y + GetComponent<Rigidbody2D>().velocity.y);
-                GetComponent<Rigidbody2D>().velocity = veloc;
+                var right    = gameObject.transform.right;
+                var velocity = _rb.velocity;
+                var v =
+                    new Vector2(-0.1f * right.x + velocity.x,
+                        -0.1f * right.y + velocity.y);
+                velocity     = v;
+                _rb.velocity = velocity;
             }
         }
     }

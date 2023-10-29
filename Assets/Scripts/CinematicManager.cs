@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CinematicManager : MonoBehaviour
@@ -7,28 +6,29 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endRopePosition;
-    [SerializeField] private Transform finalPosition;
+    //[SerializeField] private Transform finalPosition;
     [SerializeField] private CameraMovement cam;
     [SerializeField] private float timeToDescend = 5f;
     [SerializeField] private TileDecayManager tileDecayManager;
     [SerializeField] private GameObject victoryScreen;
     
-    private Vector3 velocity;
+    private Vector3 _velocity;
 
     private static readonly int       speed           = Animator.StringToHash("Speed");
     private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
     private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
     private static readonly int       isTouchingFloor = Animator.StringToHash("isTouchingFloor");
     private static readonly int       airSpeed        = Animator.StringToHash("AirSpeed");
-    
-    void Start()
+
+    public void Start()
     {
         AudioManager.Instance.PlayMusic("Descent");
         player.inCinematic = true;
         cam.isInStartCinematic = true;
         player.rb.isKinematic = true;
-        player.transform.position = startPosition.position;
-        cam.transform.position = startPosition.position;
+        var position = startPosition.position;
+        player.transform.position = position;
+        cam.transform.position = position;
         player.lamp.transform.localRotation = Quaternion.Euler(0,0,180);
         
         StartCoroutine(StartAnimCoroutine());
@@ -40,10 +40,11 @@ public class CinematicManager : MonoBehaviour
         player.inCinematic = true;
 
         player.rb.AddForce(new Vector2(10,6), ForceMode2D.Impulse);
-       
-        Vector3 localScale = player.transform.localScale;
+
+        var     transform1 = player.transform;
+        var localScale = transform1.localScale;
         localScale.x = 1f;
-        player.transform.localScale = localScale;
+        transform1.localScale = localScale;
         
         StartCoroutine(EndAnimCoroutine());
     }
@@ -57,10 +58,11 @@ public class CinematicManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
-                player.transform.position = endRopePosition.position;
-                cam.transform.position = endRopePosition.position;
+                var position = endRopePosition.position;
+                player.transform.position = position;
+                cam.transform.position = position;
             }
-            player.transform.position = Vector3.SmoothDamp(player.transform.position, endRopePosition.position, ref velocity, timeToDescend);
+            player.transform.position = Vector3.SmoothDamp(player.transform.position, endRopePosition.position, ref _velocity, timeToDescend);
             yield return null;
         }
         
@@ -74,7 +76,7 @@ public class CinematicManager : MonoBehaviour
         
         yield return new WaitForSeconds(1);
 
-        float time = .2f;
+        var time = .2f;
         while (time > 0)
         {
             player.playerAnimator.SetFloat(speed, 1);

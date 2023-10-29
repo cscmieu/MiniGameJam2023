@@ -1,27 +1,35 @@
+using System;
 using UnityEngine;
 
 public class StalactiteSim : MonoBehaviour
 {
-    [SerializeField] private float groundDistance = 20f;
-    [SerializeField] private float acceleration = 15f;
-    [SerializeField] private float maxspeed = 15f;
-    [SerializeField] private float totalAdditionalFallLength = 1f;
-    private float _currentAdditionalFallLength;
-    private float _speed;
-    private bool _shouldFall;
-    private bool _isFalling;
-    private bool _hasFallen;
+    [SerializeField] private float       groundDistance            = 20f;
+    [SerializeField] private float       acceleration              = 15f;
+    [SerializeField] private float       maxSpeed                  = 15f;
+    [SerializeField] private float       totalAdditionalFallLength = 1f;
+    private                  Rigidbody2D _rb;
+    private                  PolygonCollider2D _pc;
+    private                  EdgeCollider2D _ec;
+    private                  float       _currentAdditionalFallLength;
+    private                  float       _speed;
+    private                  bool        _shouldFall;
+    private                  bool        _isFalling;
+    private                  bool        _hasFallen;
+
+    private void Start()
+    {
+        _rb                                       = GetComponent<Rigidbody2D>();
+        _ec = GetComponent<EdgeCollider2D>();
+        _pc = GetComponent<PolygonCollider2D>();
+    }
 
     private void CheckPlayerPresence()
     {
-        RaycastHit2D hit;
-        Vector2 origin = transform.position;
-        hit = Physics2D.Raycast(origin, Vector2.down, groundDistance);
-        if (hit.collider.CompareTag("Player"))
-        {
-            _shouldFall = true;
-            GetComponent<Rigidbody2D>().simulated = true;
-        }
+        Vector2      origin = transform.position;
+        var hit    = Physics2D.Raycast(origin, Vector2.down, groundDistance);
+        if (hit.collider.gameObject.layer != 6) return;
+        _shouldFall   = true;
+        _rb.simulated = true;
     }
 
     private void Update()
@@ -37,13 +45,13 @@ public class StalactiteSim : MonoBehaviour
             return;
         }
 
-        if (_speed < maxspeed)
+        if (_speed < maxSpeed)
         {
             _speed += acceleration * Time.deltaTime;
         }
         else
         {
-            _speed = maxspeed;
+            _speed = maxSpeed;
         }
 
         if (_currentAdditionalFallLength < totalAdditionalFallLength)
@@ -54,8 +62,8 @@ public class StalactiteSim : MonoBehaviour
         }
         else
         {
-            GetComponent<EdgeCollider2D>().enabled = true;
-            GetComponent<PolygonCollider2D>().enabled = false;
+            _ec.enabled = true;
+            _pc.enabled = false;
         }
 
         if (_hasFallen)
@@ -67,13 +75,13 @@ public class StalactiteSim : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.layer == 6)
         {
             EffectManager.KnockBackTriggered = true;
-            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            var hitToTheRight = other.transform.position.x > transform.position.x;
             EffectManager.KnockBackToTheRight = hitToTheRight;
         }
-        else if (other.CompareTag("Ground"))
+        else if (other.gameObject.layer == 6)
         {
             _hasFallen = true;
         }

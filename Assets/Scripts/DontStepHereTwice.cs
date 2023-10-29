@@ -15,13 +15,12 @@ public class DontStepHereTwice : MonoBehaviour
     }
     private void Update()
     {
-        if (_isTriggered)
-        {
-            _elapsedTime += Time.deltaTime;
-            if (_elapsedTime > delayBeforeActivation)
-            {
-                transform.GetChild(0).gameObject.SetActive(true);
-            }
-        }
+        if (!_isTriggered) return;
+        
+        _elapsedTime += Time.deltaTime;
+        
+        if (!(_elapsedTime > delayBeforeActivation)) return;
+        
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }

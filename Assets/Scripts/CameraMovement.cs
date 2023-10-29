@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -16,11 +13,11 @@ public class CameraMovement : MonoBehaviour
     private Transform endCinematicTarget;
     
     
-    private Vector3 velocity;
+    private Vector3 _velocity;
     public bool isInStartCinematic;
     public bool isInEndCinematic;
 
-    private bool _istargetNull;
+    private bool _isTargetNull;
 
     void Update()
     {
@@ -34,27 +31,27 @@ public class CameraMovement : MonoBehaviour
 
         if (isInEndCinematic)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, endCinematicTarget.position, ref velocity, 3);
+            transform.position = Vector3.SmoothDamp(transform.position, endCinematicTarget.position, ref _velocity, 3);
             return;
         }
 
         if (target.transform.position.x > rope.transform.position.x - 3 &&
             target.transform.position.x < rope.transform.position.x + 3)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(rope.transform.position.x, target.transform.position.y, 0), ref velocity, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(rope.transform.position.x, target.transform.position.y, 0), ref _velocity, speed);
         }
         else if (target.cameraTarget.transform.position.x > xMin && 
                  target.cameraTarget.transform.position.x < xMax)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, target.cameraTarget.transform.position, ref velocity, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, target.cameraTarget.transform.position, ref _velocity, speed);
         }
         else if (target.cameraTarget.transform.position.x < xMin)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xMin, target.transform.position.y, 0), ref velocity, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xMin, target.transform.position.y, 0), ref _velocity, speed);
         }
         else
         {
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xMax, target.transform.position.y, 0), ref velocity, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(xMax, target.transform.position.y, 0), ref _velocity, speed);
         }
     }
 }

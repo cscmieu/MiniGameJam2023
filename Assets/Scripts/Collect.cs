@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-    public int value = 0;
-    [SerializeField] private string vfx;
+    public int value;
+    //[SerializeField] private string vfx;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer != 6) return; // si on touche le joueur

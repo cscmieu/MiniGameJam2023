@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontal;
-    private float vertical;
-    private bool  touchRope;
-    private bool  touchWall;
-    private bool  touchFloor;
-    private bool  isFacingRight = true;
+    private float _horizontal;
+    private float _vertical;
+    private bool  _touchRope;
+    private bool  _touchWall;
+    private bool  _touchFloor;
+    private bool  _isFacingRight = true;
     public bool _inputDisabled;
     private bool _isHit;
     private bool _isStunned;
@@ -52,29 +52,29 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
     
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical   = Input.GetAxisRaw("Vertical");
-        touchRope  = TouchRope();
-        touchWall  = TouchWall();
-        touchFloor = IsGrounded();
-        playerAnimator.SetBool(isTouchingWall,  touchWall);
-        playerAnimator.SetBool(isTouchingFloor, touchFloor);
-        playerAnimator.SetBool(isTouchingRope, touchRope);
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        _vertical   = Input.GetAxisRaw("Vertical");
+        _touchRope  = TouchRope();
+        _touchWall  = TouchWall();
+        _touchFloor = IsGrounded();
+        playerAnimator.SetBool(isTouchingWall,  _touchWall);
+        playerAnimator.SetBool(isTouchingFloor, _touchFloor);
+        playerAnimator.SetBool(isTouchingRope, _touchRope);
         playerAnimator.SetFloat(airSpeed, rb.velocity.y);
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
         playerAnimator.SetBool(isStunned, _isStunned);
         playerAnimator.SetBool(isHurt, _isHit);
         // Jump
-        float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
+        var ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!_inputDisabled)
         {
-            if (Input.GetButtonDown("Jump") && (touchFloor || touchRope))
+            if (Input.GetButtonDown("Jump") && (_touchFloor || _touchRope))
             {
                 //AudioManager.Instance.PlaySFX("Jump");
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
             }
 
-            if (Input.GetButtonDown("Jump") && touchWall)
+            if (Input.GetButtonDown("Jump") && _touchWall)
             {
                 //AudioManager.Instance.PlaySFX("WallJump");
                 rb.velocity = new Vector2(rb.velocity.x, ySpeed);
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Grimper à la corde
-        if (vertical > 0f && touchRope)
+        if (_vertical > 0f && _touchRope)
         {
             lamp.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.position = new Vector2(5.5f,          rb.position.y);
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         float knockBackDirection = EffectManager.KnockBackToTheRight == true ?  1 : -1;
         if (!_inputDisabled)
         {
-            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(_horizontal * moveSpeed, rb.velocity.y);
         }
         
         if (EffectManager.KnockBackTriggered)
@@ -190,9 +190,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !_inputDisabled)
+        if ((_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) && !_inputDisabled)
         {
-            isFacingRight = !isFacingRight;
+            _isFacingRight = !_isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;

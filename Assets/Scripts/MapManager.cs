@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,7 +12,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] 
     private List<TileData> tilesData;
     
-    private Dictionary<TileBase, TileData> dataFromTiles = new Dictionary<TileBase, TileData>();
+    private readonly Dictionary<TileBase, TileData> _dataFromTiles = new Dictionary<TileBase, TileData>();
 
     private void Awake()
     {
@@ -31,19 +29,14 @@ public class MapManager : MonoBehaviour
         {
             foreach (var tile in tileData.tiles)
             {
-                dataFromTiles.Add(tile, tileData);
+                _dataFromTiles.Add(tile, tileData);
             }
         }
     }
 
     public TileData GetTileData(Vector3Int position)
     {
-        TileBase tile = tilemap.GetTile(position);
-        if (tile.IsUnityNull())
-        {
-            return null;
-        }
-
-        return dataFromTiles[tile];
+        var tile = tilemap.GetTile(position);
+        return tile.IsUnityNull() ? null : _dataFromTiles[tile];
     }
 }
