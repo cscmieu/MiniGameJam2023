@@ -20,6 +20,8 @@ public class KillZone : MonoBehaviour
         AudioManager.Instance.StopMusic("MainMusic");
         yield return new WaitForSeconds(1.5f);
         AudioManager.Instance.PlaySFX("GameOver");
+        AudioManager.Instance.PlayMusic("Descent");
+        AudioManager.Instance.SetMusicVolume(.2f);
         gameOver.SetActive(true); 
     }
     
