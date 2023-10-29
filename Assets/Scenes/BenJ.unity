@@ -1827,7 +1827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -405.09036}
+  m_AnchoredPosition: {x: 480, y: -404.70163}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253918304
@@ -44104,6 +44104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 851006382}
+  pauseButton: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!61 &1435268742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45185,7 +45187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -135.03012}
+  m_AnchoredPosition: {x: 480.00006, y: -134.90054}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716704316
