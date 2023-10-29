@@ -9,6 +9,7 @@ public class Collect : MonoBehaviour
         if (collision.gameObject.layer != 6) return; // si on touche le joueur
         AudioManager.Instance.PlaySFX(vfx);
         ScoreManager.Instance.UpdateScore(value);
+        ScoreDisplay.Instance.ScoreUp();
         Destroy(gameObject.transform.parent.gameObject);
     }
 }

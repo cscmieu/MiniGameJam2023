@@ -90,7 +90,7 @@ public class CinematicManager : MonoBehaviour
         player.rb.velocity = new Vector2(0, 0);
         player.playerAnimator.SetFloat(speed, 0);
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.5f);
         
         player.inCinematic = false;
     }

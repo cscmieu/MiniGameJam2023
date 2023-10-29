@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4305002774137009189
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   decayTile: {fileID: 11400000, guid: 8a9e35f45b58f2a4bb387021d77c3fe4, type: 2}
   damagedPrefab: {fileID: -500054247895193592, guid: a52341e942193ad48a721ccf0e178892, type: 3}
-  decayStartPosition: {x: 5, y: -4, z: 0}
+  decayStartPosition: {x: 8, y: -4, z: 0}
   spreadChanceSide: 75
-  spreadChanceUp: 20
+  spreadChanceUp: 50
   spreadChanceDown: 90
