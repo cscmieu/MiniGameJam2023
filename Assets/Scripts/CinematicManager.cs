@@ -37,9 +37,9 @@ public class CinematicManager : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D col)
     {
         cam.isInEndCinematic = true;
-        
-        player.rb.AddForce(new Vector2(10,6), ForceMode2D.Impulse);
         player.inCinematic = true;
+
+        player.rb.AddForce(new Vector2(10,6), ForceMode2D.Impulse);
        
         Vector3 localScale = player.transform.localScale;
         localScale.x = 1f;
