@@ -482,8 +482,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "L\xE9o \"Pralii~~\" Capes\n- 2D artist -"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -744,7 +744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -462.59357}
+  m_AnchoredPosition: {x: 480, y: -466.09036}
   m_SizeDelta: {x: 160, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701831670
@@ -922,7 +922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -194.86452}
+  m_AnchoredPosition: {x: 480, y: -196.03012}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868350031
@@ -1131,8 +1131,8 @@ MonoBehaviour:
 
     - Programmer and Sound Designer -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1888,8 +1888,8 @@ MonoBehaviour:
 
     - Gameplay Programmer -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2023,8 +2023,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Marcel \"Juvisy\" Fraichard\n - Programmer and Level Designer -"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2210,8 +2210,8 @@ MonoBehaviour:
 
     - Gameplay Programmer and 2D artist -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2347,8 +2347,8 @@ MonoBehaviour:
 
     - Gameplay Programmer -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
+  m_sharedMaterial: {fileID: -7701981976253643098, guid: 863eaafb807ba6e4a9415937f6b9873b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
