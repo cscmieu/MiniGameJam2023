@@ -6,9 +6,9 @@ public class DontStepHereTwice : MonoBehaviour
     private float _elapsedTime;
     private bool _isTriggered;
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == 6)
         {
             _isTriggered = true;
         }
