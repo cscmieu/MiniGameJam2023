@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static int score;
     public static float time;
+    public static int malus;
     private float startingTime;
     public static ScoreManager Instance { get; private set; }
     
@@ -14,6 +15,7 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
         score = 0;
         time = 0;
+        malus = 0;
     }
 
     private void OnEnable()

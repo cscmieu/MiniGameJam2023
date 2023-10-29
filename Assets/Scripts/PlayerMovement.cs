@@ -121,6 +121,8 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool(isHurt, true);
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(knockBackDirection * knockBackStr.x, knockBackStr.y);
+
+            ScoreManager.malus += 20;
         }
 
         if (EffectManager.StunTriggered)
