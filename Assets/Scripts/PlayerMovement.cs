@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Grimper à la corde
-        if (_vertical > 0f && _touchRope)
+        if (_vertical > 0.9f && _touchRope)
         {
             lamp.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.position = new Vector2(5.5f,          rb.position.y);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RelicManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class RelicManager : MonoBehaviour
 
     public void LaunchGame()
     {
+        GetComponentInChildren<Light2D>().enabled = false;
         tileDecayManager.gameObject.SetActive(true);
         AudioManager.Instance.PlayMusic("MainMusic", true);
         managerScore.SetActive(true);
