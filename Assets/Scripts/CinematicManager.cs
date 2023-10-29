@@ -11,6 +11,9 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private float timeToDescend = 5f;
     [SerializeField] private TileDecayManager tileDecayManager;
     [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private GameObject managerScore;
+    [SerializeField] private GameObject scoreDisplay;
+    [SerializeField] private GameObject timeDisplay;
     
     private Vector3 _velocity;
 
@@ -30,7 +33,6 @@ public class CinematicManager : MonoBehaviour
         player.transform.position = position;
         cam.transform.position = position;
         player.lamp.transform.localRotation = Quaternion.Euler(0,0,180);
-        
         StartCoroutine(StartAnimCoroutine());
     }
 
@@ -93,13 +95,15 @@ public class CinematicManager : MonoBehaviour
         player.inCinematic = false;
         tileDecayManager.gameObject.SetActive(true);
         AudioManager.Instance.PlayMusic("MainMusic", true);
+        managerScore.SetActive(true);
     }
 
     private IEnumerator EndAnimCoroutine()
     {
         player.playerAnimator.SetBool(isTouchingRope, false);
         player.playerAnimator.SetFloat(isClimbingRope, 0);
-        
+        scoreDisplay.SetActive(false);
+        timeDisplay.SetActive(false);
         yield return new WaitForSeconds(.2f);
         
         player.playerAnimator.SetBool(isTouchingFloor, true);
