@@ -23,11 +23,13 @@ public class Flamme_throw : MonoBehaviour
         {
             GetComponent<BoxCollider2D>().enabled = false;
             isActive = false;
+            FlameAnim.FlammeStop = true;
         }
         else
         {
             GetComponent<BoxCollider2D>().enabled = true;
             isActive = true;
+            FlameAnim.FlammeStop = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
