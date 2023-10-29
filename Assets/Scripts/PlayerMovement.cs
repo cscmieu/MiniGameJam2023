@@ -30,17 +30,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask   groundLayer;
     [SerializeField] private LayerMask   ropeLayer;
     
-    public GameObject lamp;
-    public Animator    playerAnimator;
-    public Rigidbody2D rb;
-    public bool inCinematic;
-    public                  Transform cameraTarget;
-    private static readonly int       speed           = Animator.StringToHash("Speed");
-    private static readonly int       isTouchingWall  = Animator.StringToHash("isTouchingWall");
-    private static readonly int       airSpeed        = Animator.StringToHash("AirSpeed");
-    private static readonly int       isTouchingFloor = Animator.StringToHash("isTouchingFloor");
-    private static readonly int       isClimbingRope  = Animator.StringToHash("isClimbingRope");
-    private static readonly int       isTouchingRope  = Animator.StringToHash("isTouchingRope");
+    public                  GameObject  lamp;
+    public                  Animator    playerAnimator;
+    public                  Rigidbody2D rb;
+    public                  bool        inCinematic;
+    public                  Transform   cameraTarget;
+    private static readonly int         speed           = Animator.StringToHash("Speed");
+    private static readonly int         isTouchingWall  = Animator.StringToHash("isTouchingWall");
+    private static readonly int         airSpeed        = Animator.StringToHash("AirSpeed");
+    private static readonly int         isTouchingFloor = Animator.StringToHash("isTouchingFloor");
+    private static readonly int         isClimbingRope  = Animator.StringToHash("isClimbingRope");
+    private static readonly int         isTouchingRope  = Animator.StringToHash("isTouchingRope");
+    private static readonly int         isHurt          = Animator.StringToHash("isHurt");
+    private static readonly int         isStunned       = Animator.StringToHash("isStunned");
 
 
     void Update()
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-
+    
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical   = Input.GetAxisRaw("Vertical");
         touchRope  = TouchRope();
@@ -60,7 +62,8 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetBool(isTouchingRope, touchRope);
         playerAnimator.SetFloat(airSpeed, rb.velocity.y);
         playerAnimator.SetFloat(speed, Mathf.Abs(rb.velocity.x));
-
+        playerAnimator.SetBool(isStunned, _isStunned);
+        playerAnimator.SetBool(isHurt, _isHit);
         // Jump
         float ySpeed = EffectManager.SlownessTriggered == true ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
         if (!_inputDisabled)
@@ -113,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _isHit = true;
             _inputDisabled = true;
-            playerAnimator.SetBool("isHurt", true);
+            playerAnimator.SetBool(isHurt, true);
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(knockBackDirection * knockBackStr.x, knockBackStr.y);
         }
@@ -122,7 +125,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _isStunned = true;
             _inputDisabled = true;
-            playerAnimator.SetBool("isStunned", true);
             EffectManager.StunTriggered = false;
             rb.velocity = new Vector2(0, 0);
         }
