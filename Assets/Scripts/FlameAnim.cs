@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FlameAnim : MonoBehaviour
 {
@@ -12,10 +12,13 @@ public class FlameAnim : MonoBehaviour
     private                  bool          _flammeActive;
     private static readonly  int           flammeStop = Animator.StringToHash("FlammeStop");
     private                  BoxCollider2D _bc;
+    private                  Light2D _ld;
 
     private void Start()
     {
         _bc = GetComponent<BoxCollider2D>();
+        
+        _ld = GetComponentInChildren<Light2D>();
     }
 
     private void FixedUpdate()
@@ -45,13 +48,15 @@ public class FlameAnim : MonoBehaviour
     {
         if (!_flammeActive)
         {
-            _bc.enabled = true;
+            _bc.enabled   = true;
+            _ld.intensity = 1f;
             _flammeActive = true;
-            _inDelay = false;
+            _inDelay      = false;
         }
         else
         {
-            _bc.enabled = false;
+            _bc.enabled   = false;
+            _ld.intensity = 0f;
             _flammeActive = false;
         }
     }
