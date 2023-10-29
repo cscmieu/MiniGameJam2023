@@ -22,11 +22,13 @@ public class GameMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         _player = transform.parent.gameObject.GetComponent<PlayerMovement>();
     }
 
     public void PauseGame()
     {
+        Cursor.visible = true;
         _player.inCinematic = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -34,6 +36,7 @@ public class GameMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        Cursor.visible = false;
         _player.inCinematic = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;

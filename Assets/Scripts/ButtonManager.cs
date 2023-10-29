@@ -14,6 +14,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
         startButton.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
         creditsButton.onClick.AddListener(OpenCredits);

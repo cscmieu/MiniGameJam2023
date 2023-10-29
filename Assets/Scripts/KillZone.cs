@@ -31,6 +31,7 @@ public class KillZone : MonoBehaviour
         AudioManager.Instance.PlayMusic("Descent");
         AudioManager.Instance.SetMusicVolume(.2f);
         gameOver.SetActive(true); 
+        Cursor.visible = true;
     }
     
 }
