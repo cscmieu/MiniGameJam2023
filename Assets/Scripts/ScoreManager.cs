@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score;
-    public static float time;
-    public static int malus;
-    private float startingTime;
+    public static int Score;
+    public static float Time;
+    public static int Malus;
+    private float _startingTime;
     public static ScoreManager Instance { get; private set; }
     
     private void Awake()
     {
         Instance = this;
-        score = 0;
-        time = 0;
-        malus = 0;
+        Score = 0;
+        Time = 0;
+        Malus = 0;
     }
 
     private void OnEnable()
     {
-        startingTime = Time.time;
+        _startingTime = UnityEngine.Time.time;
     }
 
     public void UpdateScore(int i)
     {
-        score += i;
+        Score += i;
     }
     
     void Update()
     {
-        time = Mathf.Floor(Time.time - startingTime);
+        Time = Mathf.Floor(UnityEngine.Time.time - _startingTime);
     }
 }

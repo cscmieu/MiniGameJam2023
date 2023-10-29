@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,16 +16,16 @@ public class VictoryScreen : MonoBehaviour
     private GameObject button;
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Cursor.visible = true;
         AudioManager.Instance.SetMusicVolume(.2f);
         AudioManager.Instance.PlaySFX("Win");
-        scoreTresors.text = scoreTresors.text + ScoreManager.score;
-        int timeScore = (int) (1000 - Mathf.Max(Mathf.Sqrt(ScoreManager.time) * 80, 0));
+        scoreTresors.text = scoreTresors.text + ScoreManager.Score;
+        int timeScore = (int) (1000 - Mathf.Max(Mathf.Sqrt(ScoreManager.Time) * 80, 0));
         scoreTime.text = scoreTime.text + timeScore;
-        scoreMalus.text = scoreMalus.text + ScoreManager.malus;
-        scoreTotal.text = scoreTotal.text + (ScoreManager.score + timeScore - ScoreManager.malus);
+        scoreMalus.text = scoreMalus.text + ScoreManager.Malus;
+        scoreTotal.text = scoreTotal.text + (ScoreManager.Score + timeScore - ScoreManager.Malus);
 
         StartCoroutine(VictoryCoroutine());
     }

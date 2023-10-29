@@ -7,16 +7,13 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endRopePosition;
-    //[SerializeField] private Transform finalPosition;
-    [SerializeField] private CameraMovement cam;
-    [SerializeField] private float timeToDescend = 5f;
-    [SerializeField] private TileDecayManager tileDecayManager;
-    [SerializeField] private GameObject victoryScreen;
-    [SerializeField] private GameObject managerScore;
-    [SerializeField] private GameObject scoreDisplay;
-    [SerializeField] private GameObject timeDisplay;
-    [SerializeField] private Light2D light;
-    [SerializeField] private Color lightEndColor;
+    [SerializeField] private     CameraMovement   cam;
+    [SerializeField] private     float            timeToDescend = 5f;
+    [SerializeField] private     GameObject       victoryScreen;
+    [SerializeField] private     GameObject       scoreDisplay;
+    [SerializeField] private     GameObject       timeDisplay;
+    [SerializeField] private new Light2D          light;
+    [SerializeField] private     Color            lightEndColor;
     
     private Vector3 _velocity;
 
@@ -130,10 +127,11 @@ public class CinematicManager : MonoBehaviour
         player.playerAnimator.SetFloat(speed, 0);
         
         yield return new WaitForSeconds(2);
-        
-        var localScale = player.transform.localScale;
+
+        var transform1 = player.transform;
+        var localScale = transform1.localScale;
         localScale.x = -1f;
-        player.transform.localScale =  localScale;
+        transform1.localScale =  localScale;
         
         victoryScreen.SetActive(true);
     }

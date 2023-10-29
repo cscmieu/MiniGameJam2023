@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class TimeDisplay : MonoBehaviour
 {
-    [SerializeField] private TMP_Text timetext;
-    void Start()
+    [SerializeField] private TMP_Text timeText;
+
+    public void Start()
     {
-        timetext.text = "Time : 0";
+        timeText.text = "Time : 0";
     }
 
-    void Update()
+    public void Update()
     {
-        timetext.text = "Time : " + ScoreManager.time;
+        timeText.text = "Time : " + ScoreManager.Time;
     }
 }

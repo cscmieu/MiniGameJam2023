@@ -14,7 +14,7 @@ public class Bumper : MonoBehaviour
         
         EffectManager.BumpTriggered                           = true;
         _player                                               = other.gameObject;
-        _player.GetComponent<PlayerMovement>()._inputDisabled = true;
+        _player.GetComponent<PlayerMovement>().InputDisabled = true;
         animator.SetBool(isBumping, true);
         Vector2 positionBumper = gameObject.transform.position;
         Vector2 positionPlayer = other.transform.position;

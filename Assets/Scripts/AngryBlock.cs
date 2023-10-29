@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class AngryBlock : MonoBehaviour
 {
-    private                  float         _animationtime;
+    private                  float         _animationTime;
     private                  bool          _stop = true;
     private                  Rigidbody2D   _rb;
     public                   Animator      animator;
@@ -20,7 +19,7 @@ public class AngryBlock : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             EffectManager.KnockBackTriggered = true;
-            bool hitToTheRight = other.transform.position.x > transform.position.x ? true : false;
+            bool hitToTheRight = other.transform.position.x > transform.position.x;
             EffectManager.KnockBackToTheRight = hitToTheRight;
         }
         _stop = true;
@@ -33,8 +32,8 @@ public class AngryBlock : MonoBehaviour
     {
         if (animator.GetBool(destroyed))
         {
-            _animationtime += Time.deltaTime;
-            if (_animationtime >= 0.2f)
+            _animationTime += Time.deltaTime;
+            if (_animationTime >= 0.2f)
             {
                 Destroy(gameObject);
             }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class DontStepHereTwice : MonoBehaviour
 {
     [SerializeField] private float     delayBeforeActivation = 0.2f;
-    [SerializeField] private Transform Connarddemerde;
+    [SerializeField] private Transform spikesPosition;
     private                  float     _elapsedTime;
     private                  bool      _isTriggered;
 
@@ -22,6 +22,6 @@ public class DontStepHereTwice : MonoBehaviour
         
         if (!(_elapsedTime > delayBeforeActivation)) return;
         
-        Connarddemerde.gameObject.SetActive(true);
+        spikesPosition.gameObject.SetActive(true);
     }
 }

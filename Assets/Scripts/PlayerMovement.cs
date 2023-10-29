@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private bool  _touchWall;
     private bool  _touchFloor;
     private bool  _isFacingRight = true;
-    public bool _inputDisabled;
+    public bool InputDisabled;
     private bool _isHit;
     private bool _isStunned;
     private float _elapsedTime;
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.SetBool(isHurt, _isHit);
         // Jump
         var ySpeed = EffectManager.SlownessTriggered ?  jumpingPower * jumpPowerMultiplier : jumpingPower;
-        if (!_inputDisabled)
+        if (!InputDisabled)
         {
             if (Input.GetButtonDown("Jump") && (_touchFloor || _touchRope))
             {
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inCinematic) return;
         float knockBackDirection = EffectManager.KnockBackToTheRight ?  1 : -1;
-        if (!_inputDisabled)
+        if (!InputDisabled)
         {
             rb.velocity = new Vector2(_horizontal * moveSpeed, rb.velocity.y);
         }
@@ -126,18 +126,18 @@ public class PlayerMovement : MonoBehaviour
         if (EffectManager.KnockBackTriggered)
         {
             _isHit = true;
-            _inputDisabled = true;
+            InputDisabled = true;
             playerAnimator.SetBool(isHurt, true);
             EffectManager.KnockBackTriggered = false;
             rb.velocity = new Vector2(knockBackDirection * knockBackStr.x, knockBackStr.y);
 
-            ScoreManager.malus += 20;
+            ScoreManager.Malus += 20;
         }
 
         if (EffectManager.StunTriggered)
         {
             _isStunned = true;
-            _inputDisabled = true;
+            InputDisabled = true;
             EffectManager.StunTriggered = false;
             rb.velocity = new Vector2(0, 0);
         }
@@ -145,11 +145,11 @@ public class PlayerMovement : MonoBehaviour
         if (EffectManager.BumpTriggered)
         {
             _isStunned = true;
-            _inputDisabled = true;
+            InputDisabled = true;
             EffectManager.BumpTriggered = false;
         }
         
-        if (_inputDisabled)
+        if (InputDisabled)
         {
             _elapsedTime += Time.deltaTime;
         }
@@ -171,9 +171,9 @@ public class PlayerMovement : MonoBehaviour
             _isStunned = false;
         }
 
-        if (!_isStunned && !_isHit && _inputDisabled)
+        if (!_isStunned && !_isHit && InputDisabled)
         {
-            _inputDisabled = false;
+            InputDisabled = false;
             _elapsedTime = 0;
         }
         
@@ -206,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (((!_isFacingRight || !(_horizontal < 0f)) && (_isFacingRight || !(_horizontal > 0f))) || _inputDisabled) return;
+        if (((!_isFacingRight || !(_horizontal < 0f)) && (_isFacingRight || !(_horizontal > 0f))) || InputDisabled) return;
         
         _isFacingRight = !_isFacingRight;
         var transform1 = transform;

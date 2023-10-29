@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
 
     private bool _isTargetNull;
 
-    void Update()
+    private void Update()
     {
         if (target is null || isDead) return;
         

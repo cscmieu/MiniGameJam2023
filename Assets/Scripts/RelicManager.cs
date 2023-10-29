@@ -3,14 +3,15 @@ using UnityEngine.Rendering.Universal;
 
 public class RelicManager : MonoBehaviour
 {
-    [SerializeField] Animator relicAnimator;
-    [SerializeField] private GameObject managerScore;
+    [SerializeField]         Animator         relicAnimator;
+    [SerializeField] private GameObject       managerScore;
     [SerializeField] private TileDecayManager tileDecayManager;
+    private static readonly  int              triggerBreak = Animator.StringToHash("triggerBreak");
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer != 6) return;
-        relicAnimator.SetBool("triggerBreak", true);
+        relicAnimator.SetBool(triggerBreak, true);
     }
 
     public void LaunchGame()

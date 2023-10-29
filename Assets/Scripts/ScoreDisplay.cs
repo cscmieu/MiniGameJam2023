@@ -26,7 +26,7 @@ public class ScoreDisplay : MonoBehaviour
 
     public void ScoreUp()
     {
-        scoreText.text = "Score : " + ScoreManager.score;
+        scoreText.text = "Score : " + ScoreManager.Score;
         StartCoroutine(ScoreCoroutine());
     }
 

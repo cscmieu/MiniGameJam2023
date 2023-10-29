@@ -1,7 +1,5 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using Button = UnityEngine.UI.Button;
 
 public class KillZone : MonoBehaviour
 {
