@@ -3,13 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
-    public static GameMenu Instance;
-    [SerializeField] public GameObject pauseMenu;
-
-    [SerializeField] 
-    private GameObject score;
-    [SerializeField] 
-    private GameObject time;
+    public static            GameMenu   Instance;
+    [SerializeField] public  GameObject pauseMenu;
+    [SerializeField] private GameObject score;
+    [SerializeField] private GameObject time;
     
     private PlayerMovement _player;
     private void Awake()

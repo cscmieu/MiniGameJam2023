@@ -6,6 +6,7 @@ public class DontStepHereTwice : MonoBehaviour
     [SerializeField] private Transform spikesPosition;
     private                  float     _elapsedTime;
     private                  bool      _isTriggered;
+    private                  bool      _isActivated;
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -17,6 +18,7 @@ public class DontStepHereTwice : MonoBehaviour
     private void Update()
     {
         if (!_isTriggered) return;
+        if (_isActivated) return;
         
         _elapsedTime += Time.deltaTime;
         

@@ -1,7 +1,6 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -16,11 +15,13 @@ public class ButtonManager : MonoBehaviour
     public void StartGameEasy()
     {
         SceneManager.LoadScene(1);
+        ScoreManager.EasyMode = 2;
     }
     
     public void StartGameHard()
     {
         SceneManager.LoadScene(2);
+        ScoreManager.EasyMode = 1;
     }
 
     public void QuitGame()
